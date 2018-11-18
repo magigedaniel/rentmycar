@@ -1,0 +1,132 @@
+[2017-01-16 10:39:12] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO/public\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
+[2017-01-16 10:39:24] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO/public\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
+[2017-01-16 10:39:46] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO/public\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
+[2017-01-16 10:40:39] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO\public\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
+[2017-01-16 10:42:25] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO/public\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
+[2017-01-16 10:43:56] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO\public\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
+[2017-01-16 10:44:19] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO\public\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
+[2017-01-16 10:46:59] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO\public\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
+[2017-01-16 10:50:59] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO/public/\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
+[2017-01-16 11:02:05] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO\public\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
+[2017-01-16 11:02:11] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO\public\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
+[2017-01-16 11:02:29] local.ERROR: ErrorException: file_put_contents(C:\xampp\htdocs\EADVIDEO\public\framework/sessions/6tlgILMsNvDAiOP11ojTLoedfOOiMH6wBjVfCBQb): failed to open stream: No such file or directory in C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:111
+Stack trace:
+#0 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'file_put_conten...', 'C:\\xampp\\htdocs...', 111, Array)
+#1 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(111): file_put_contents('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', 2)
+#2 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\FileSessionHandler.php(83): Illuminate\Filesystem\Filesystem->put('C:\\xampp\\htdocs...', 'a:3:{s:6:"_toke...', true)
+#3 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Store.php(263): Illuminate\Session\FileSessionHandler->write('6tlgILMsNvDAiOP...', 'a:3:{s:6:"_toke...')
+#4 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(88): Illuminate\Session\Store->save()
+#5 C:\xampp\htdocs\EADVIDEO\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(176): Illuminate\Session\Middleware\StartSession->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#6 C:\xampp\htdocs\EADVIDEO\public\index.php(58): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#7 C:\xampp\htdocs\EADVIDEO\server.php(21): require_once('C:\\xampp\\htdocs...')
+#8 {main}  
