@@ -37,7 +37,7 @@
                             <label for="Lname" class="col-md-4 control-label">Last Name</label>
 
                             <div class="col-md-6">
-                                <input id="lname" type="text" class="form-control" name="lname" required autofocus>
+                                <input id="lname" type="text" class="form-control" name="lname" value="{{ old('lname') }}"required autofocus>
                             </div>
                         </div>
 
@@ -52,7 +52,7 @@
                             <label for="phone" class="col-md-4 control-label">Mobile No</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control" name="phone" required autofocus>
+                                <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}"required autofocus>
                             </div>
                         </div>
 
@@ -103,6 +103,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
+                                <a class="btn btn-link" href="{{ url('/login') }}">
+                                    already member? Login Here!
+                                </a>
                             </div>
                         </div>
                     </form>

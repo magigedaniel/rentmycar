@@ -62,23 +62,6 @@
             <div class="date-city">
             </div>
         </li>
-        <li>
-    <a href=""><img src="{{asset('images/p10.jpg')}}" alt="""height="120"/></a>
-            <div class="slide-title">
-                {{--<h4>{{$vides->title}} </h4>--}}
-            </div>
-            <div class="date-city">
-            </div>
-        </li>
-        
-                    <li>
-    <a href=""><img src="{{asset('images/p11.jpg')}}" alt="""height="120"/></a>
-            <div class="slide-title">
-                {{--<h4>{{$vides->title}} </h4>--}}
-            </div>
-            <div class="date-city">
-            </div>
-        </li>
 
     </ul>
                 <script type="text/javascript">

@@ -193,26 +193,42 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                  $ipaddress = 'UNKNOWN';
                              //echo $ipaddress;*/
                             ?>
-                            @foreach($videos as $category_name => $video_in_category)
-                                <h4 style="text-align: center">{{$category_name}}</h4>
-                                @foreach($video_in_category as $vides)
-                                    <div class="col-md-3 content-grid last-grid">
-                                        <a href="{!!'/mypost?video='. $vides->id.'&id='!!}"><img
-                                                    src="{!! $vides->imageurl!!}"
-                                                    title="Click for more"></a>
-                                        <div class="inner-info"><a href="{!!'/mypost?video='. $vides->id.'&id=' !!}">
-                                                <h5>{{$vides->title}}</h5></a></div>
-                                    </div>
-                                @endforeach
-                                <a href="videos/category/{{$category_name}}">
-                                    <button type="button" class="btn btn-success btn-sm pull-right"
-                                            style="margin-top: 10px"><span class="fa fa-plus-circle"> Click to view more <span
-                                                    style="color: black">{{$category_name}}
-                                    </button>
-                                </a>
-                                <div class="clearfix"></div>
-                            @endforeach
-                            <div class="clearfix"></div>
+                            @foreach($cars as $category_name => $car_in_category)
+                                <h4 style="text-align: center">{{$category_name}}
+
+                                    @foreach($car_in_category as $car)
+                                        <div class="col-md-3 content-grid last-grid">
+                                            <a href="{!!'/mypost?car='. $car->id.'&id='!!}">
+                                                <img src="{!! $car->imageurl!!}"
+                                                     title="Click to Hire"></a>
+                                            {{--<div class="inner-info"><a href="{!!'/mypost?car='. $car->id.'&id=' !!}">
+                                                    <h5>{{$car->title}}</h5></a></div>--}}
+                                            <div class="second">
+                                                <div class="listings__title">{{$car->title}}</div>
+
+                                                <div class="listings__location">Location: {{$car->location}}</div>
+
+                                                <div class="listings__price">
+                                                    <span>KSh </span>{{$car-> price_per_day}} per day
+                                                </div>
+                                                <a href="{!!'/mypost?car='. $car->id.'&id='!!}">
+                                                    <button type="button" class="btn btn-success">Rent Me</button></a>
+                                            </div>
+
+                                        </div>
+
+                                    @endforeach
+
+                                    <a href="videos/category/{{$category_name}}">
+                                        <button type="button" class="btn btn-success btn-sm pull-right"
+                                                style="margin-top: 10px"><span class="fa fa-plus-circle"> Click to view more <span
+                                                        style="color: black">{{$category_name}}
+                                        </button>
+                                    </a>
+
+                                    <div class="clearfix"></div>
+                                    @endforeach
+                                    <div class="clearfix"></div>
                         </div>
                         <!--//End-albums-->
                         <!--//discover-view-->
@@ -251,15 +267,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script src="js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="js/bootstrap.js"></script>
-<div id="fb-root"></div>
-<div id="fb-root"></div>
-<script>(function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+
 </body>
 </html>

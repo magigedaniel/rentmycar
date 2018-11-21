@@ -27,42 +27,17 @@ use Symfony\Component\HttpFoundation\Response;
 //});
 //Registration form
 Route::get('/mypost', function () {
-    $ipaddress = '';
-    if (isset($_SERVER['HTTP_CLIENT_IP']))
-        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-    else if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    else if (isset($_SERVER['HTTP_X_FORWARDED']))
-        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-    else if (isset($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']))
-        $ipaddress = $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'];
-    else if (isset($_SERVER['HTTP_FORWARDED_FOR']))
-        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-    else if (isset($_SERVER['HTTP_FORWARDED']))
-        $ipaddress = $_SERVER['HTTP_FORWARDED'];
-    else if (isset($_SERVER['REMOTE_ADDR']))
-        $ipaddress = $_SERVER['REMOTE_ADDR'];
-    else
-        $ipaddress = 'UNKNOWN';
-    //echo $ipaddress;
 
-    if (!empty($_GET['video'])) {
+    if (!empty($_GET['car'])) {
         $user = Auth::user();
         //$userid = Auth::user()->id;
-        $id = $_GET['video'];
+        $id = $_GET['car'];
         DB::table('carpost')->where('id', $id)->increment('views');
         $video = DB::table('carpost')->where('id', $id)->first();
         $videos = DB::table('carpost')->get();
-        $voters = DB::table('voters')->where('ip', $ipaddress)->get();
-        $user_voted = false;
-        foreach ($voters as $voter) {
-            if ($voter->category . '' == $video->category . '') {
-                $user_voted = true;
-            }
-        }
         $current_year = DB::table('carpost')->max('year');
         $vote_setting = DB::table('vote_setting')->first();
-        return view('carpost', compact('videos', 'user', 'video', 'user_voted', 'current_year', 'vote_setting'));
+        return view('carpost', compact('videos', 'user', 'video', 'current_year', 'vote_setting'));
     }
     return view('index');
     //return view('carpost',compact('video'));

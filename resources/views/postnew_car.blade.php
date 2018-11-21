@@ -64,13 +64,40 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
 
                         <div class="form-group">
+                            <label for="Transmission" class="col-md-4 control-label">Transmission</label>
+                            <div class="col-md-6">
+                                <select id="Transmission" type="text" class="form-control" name="Transmission" required autofocus>
+                                    <option value="Automatic">Automatic</option>
+                                    <option value="Manual">Manual</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Transmission" class="col-md-4 control-label">Car CC</label>
+                            <div class="col-md-6">
+                                <select  id="car_cc" class="form-control" name="car_cc" required autofocus>
+                                    @foreach($car_cc as $cc)
+                                        <option value="{{$cc->name}}">{{$cc->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="category" class="col-md-4 control-label">Car Category</label>
                             <div class="col-md-6">
                                 <select  id="category" class="form-control" name="category" required autofocus>
-                                    @foreach($video_categories as $car_category)
+                                    @foreach($car_categories as $car_category)
                                         <option value="{{$car_category->name}}">{{$car_category->name}}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="PricePerDay" class="col-md-4 control-label">Price Per Day (KES)</label>
+                            <div class="col-md-6">
+                                <input id="PricePerDay" type="number" class="form-control" name="PricePerDay" required autofocus>
                             </div>
                         </div>
                         <div class="form-group">
