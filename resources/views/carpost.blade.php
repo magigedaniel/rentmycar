@@ -13,12 +13,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <meta name="keywords" content="RentMyCar.co.ke"/>
 
 
-    <meta property="og:url"           content="https://rentmycar.co.ke/mypost?video={{$video->id}}" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Rent My car" />
-    <meta property="og:description"   content="Rent my car" />
-    <meta property="og:image"         content="https://Rentmycar.co.ke/{!! $video->imageurl!!}" />
-
+    <meta property="og:url" content="https://rentmycar.co.ke/mypost?video={{$video->id}}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Rent My car"/>
+    <meta property="og:description" content="Rent my car"/>
+    <meta property="og:image" content="https://Rentmycar.co.ke/{!! $video->imageurl!!}"/>
 
 
     <script type="applicatdion/x-javascript"> addEventListener("load", function () {
@@ -26,7 +25,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             }, false);
             function hideURLbar() {
             window.scrollTo(0, 1);
-            } </script>
+            }
+    </script>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <!-- Custom CSS -->
@@ -83,7 +83,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <iframe width="100%" height="150px" frameborder="0" allowfullscreen
                             src="{{$video->videoUrl}}?autoplay=1">
                     </iframe>
-                    <div><a href="">Book this Machine</a> </div>
+                    <div><a href="">Book this Machine</a></div>
                     <div class="alert alert-info fade in">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         Car Category: {{$video->category}}
@@ -97,9 +97,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="col-xs-3">
                             <a href="#" target="_blank">
                                 <!--<button type="button" class="btn btn-primary btn-sm"><span class="fa fa-share"> Share</span></button>-->
-                                <div class="fb-share-button" data-href="https://rentmycar.co.ke/mypost?video={{url()->full()}}" data-layout="button_count" data-size="small" data-mobile-iframe="true">
-                                    <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frentmycar.co.ke%2Fmypost%3Fvideo%3D{{$video->id}}&amp;src=sdkpreparse">
-                                        <button type="button" class="btn btn-primary btn-sm"><span class="fa fa-share"> Share</span></button>
+                                <div class="fb-share-button"
+                                     data-href="https://rentmycar.co.ke/mypost?video={{url()->full()}}"
+                                     data-layout="button_count" data-size="small" data-mobile-iframe="true">
+                                    <a class="fb-xfbml-parse-ignore" target="_blank"
+                                       href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frentmycar.co.ke%2Fmypost%3Fvideo%3D{{$video->id}}&amp;src=sdkpreparse">
+                                        <button type="button" class="btn btn-primary btn-sm"><span class="fa fa-share"> Share</span>
+                                        </button>
                                     </a>
                                 </div>
                             </a>
@@ -111,10 +115,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="media response-info">
                         <div class="media-body response-text-right">
                             {!! $video->content!!}
+
                         </div>
                         <div class="clearfix"></div>
                     </div>
                 </div>
+
                 <!-- /agileits -->
                 <!--//music-right-->
             </div>
@@ -122,15 +128,73 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 
         </div>
-        <div class="clearfix"></div>
-        <!--body wrapper end-->
-        <!-- /w3l-agile -->
-    </div>
-    <!--body wrapper end-->
-@include('footer')
-<!--footer section end-->
-    <!-- /w3l-agile -->
-    <!-- main content end-->
+
+        <div class="clearfix">
+
+            <!--body wrapper end-->
+            <!-- /w3l-agile -->
+        </div>
+        <div class="clearfix">
+            <div>
+                <form>
+
+                    <div class="form-group">
+                        <label for="inputAddress">Full Name</label>
+                        <input type="text" class="form-control" id="FullName" readonly>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="startDate">Start Date</label>
+                            <input type="date" id="startDate" name="startDate"
+                                   value=""
+                                   min="2018-11-31" max="2019-12-31">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="endDate">End Date</label>
+                            <input type="date" id="endDate" name="endDate"
+                                   value="today"
+                                   min="2018-11-31" max="2019-12-31">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Address 2</label>
+                        <input type="text" class="form-control" id="inputAddress2"
+                               placeholder="Apartment, studio, or floor">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">State</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">Zip</label>
+                            <input type="text" class="form-control" id="inputZip">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                Check me out
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Request Now</button>
+                </form>
+            </div>
+        <br/>
+                    <!--body wrapper end-->
+                @include('footer')
+                <!--footer section end-->
+                    <!-- /w3l-agile -->
+                    <!-- main content end-->
 </section>
 
 <script src="js/jquery.nicescroll.js"></script>

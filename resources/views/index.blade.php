@@ -212,7 +212,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                     <span>KSh </span>{{$car-> price_per_day}} per day
                                                 </div>
                                                 <a href="{!!'/mypost?car='. $car->id.'&id='!!}">
-                                                    <button type="button" class="btn btn-success">Rent Me</button></a>
+                                                    <button type="button" class="btn btn-success" id="btn-car">Rent Me</button></a>
                                             </div>
 
                                         </div>

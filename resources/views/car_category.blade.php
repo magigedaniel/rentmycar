@@ -49,27 +49,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <!-- //header-ends -->
             <div id="page-wrapper">
                 <div class="inner-content">
-                        <h2 style="text-align: center; font-weight: 900;">{{$current_year.' '.$category_name}} Videos</h2>
-                            <?php
-                            $ipaddress = '';
-                            if (isset($_SERVER['HTTP_CLIENT_IP']))
-                                $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-                            else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-                                $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-                            else if(isset($_SERVER['HTTP_X_FORWARDED']))
-                                $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-                            else if(isset($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']))
-                                $ipaddress = $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'];
-                            else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
-                                $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-                            else if(isset($_SERVER['HTTP_FORWARDED']))
-                                $ipaddress = $_SERVER['HTTP_FORWARDED'];
-                            else if(isset($_SERVER['REMOTE_ADDR']))
-                                $ipaddress = $_SERVER['REMOTE_ADDR'];
-                            else
-                                $ipaddress = 'UNKNOWN';
-                            //echo $ipaddress;
-                            ?>
+                        <h2 style="text-align: center; font-weight: 900;">{{$category_name}} </h2>
                         <div class="row">
                             @foreach($video_in_category as $video_archive1)
                             <div class="col-md-4">
@@ -77,7 +57,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                 <h5 class="text-black text-sm" style="font-weight: 800; text-align: center">{{$video_archive1->title}}</h5>
                                             <!--</div>-->
                                             <div class="thumbnail">
-                                                <a href="{!!'/mypost?video='. $video_archive1->id.'&id='.$ipaddress!!}" target="_blank">
+                                                <a href="{!!'/mypost?video='. $video_archive1->id.'&id='!!}" target="_blank">
                                                     <img id="image{{$video_archive1->id}}" src="{{asset("$video_archive1->imageurl")}}"  title="Click to Play" style="width:100%;" onmouseover="showVideo('{{$video_archive1->id}}')">
 <!--                                                    <iframe width="100%" height="345px" src="{{$video_archive1->videoUrl}}?html5=1" allowfullscreen=""
                                                             frameborder="0" style="display: none" id="video{{$video_archive1->id}}">
@@ -85,8 +65,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                     <!--<div class="caption">-->
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <a href="{!!'/mypost?video='. $video_archive1->id.'&id='.$ipaddress !!}" target="_blank">
-                                                                    <button type="button" class="btn btn-success btn-sm" style="width: 100%"><span class="fa fa-play-circle"> Click to play now</span></button>
+                                                                <a href="{!!'/mypost?video='. $video_archive1->id.'&id=' !!}" target="_blank">
+                                                                    <button type="button" class="btn btn-success btn-sm" id="btn-car"><span class="fa fa-play-circle"> Click to play now</span></button>
                                                                 </a>
                                                             </div>
                                                         </div> 
@@ -109,18 +89,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <!-- /w3l-agile -->
 
             @include('sponsor')
-            <div>
-
-                <div class="tittle-head">
-                    <h3 class="tittle" style="text-align: center; margin-left: 35%;">Our Map Location</h3>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="clearfix"></div>
-                <div style="position: relative;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1677.0819840144175!2d36.801393712555836!3d-1.297289714971404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f109521a475dd%3A0xb5070814ceb91e88!2sDaystar+University%2C+Nairobi+Campus!5e0!3m2!1sen!2ske!4v1485554800953"
-                            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
-            </div>
             <div class="clearfix"></div>
             @include('footer')
         </div>

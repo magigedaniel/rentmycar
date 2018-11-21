@@ -1484,7 +1484,10 @@ a.top-sign {
 .button:hover {
     color: #0B1C48;
 }
-
+#btn-car{
+    width: 100%;
+    font-size: 14px;
+}
 .second{
     cursor: pointer;
     background-color: #fff4b0;
