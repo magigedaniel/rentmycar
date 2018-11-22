@@ -168,7 +168,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                     <div class="form-group col-md-6">
                         <label for="phone">M-pesa Mobile Phone</label>
-                        <input type="text" class="form-control" id="phone" value="">
+                        <input type="text" class="form-control" id="mobilePhone" name="mobilePhone">
                     </div>
 
                 </div>

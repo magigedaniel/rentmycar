@@ -1,4 +1,4 @@
 RewriteEngine On 
 RewriteCond %{SERVER_PORT} 80 
-RewriteRule ^(.*)$ https://deasff.com/$1 [R=301,L]
+RewriteRule ^(.*)$ https://rentmycar.co.ke/$1 [R=301,L]
 RewriteRule ^(.*)$ public/$1 [L]
