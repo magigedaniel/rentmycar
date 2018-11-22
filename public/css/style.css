@@ -88,6 +88,7 @@ h1, h2, h3, h4, h5 {
     border: 25px solid green;
     padding: 25px;
     margin: 25px;
+    display: block;
 }
 
 .header_stats .stat-highlight {
@@ -1943,9 +1944,14 @@ img.media-object {
     width: 64%;
 }
 
+.carDescription{
+    font-weight: bold;
+    background-color: lavender;
+}
+
 .response h4 {
     color: #444;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 600;
     margin-bottom: 1em;
 }

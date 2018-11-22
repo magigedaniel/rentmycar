@@ -18,7 +18,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <meta property="og:title" content="Rent My car"/>
     <meta property="og:description" content="Rent my car"/>
     <meta property="og:image" content="https://Rentmycar.co.ke/{!! $car->imageurl!!}"/>
-    
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <!-- Custom CSS -->
@@ -69,11 +69,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <!--/music-right-->
 
                 <div class="single_left"><!--/video-main-->
-                <!--                            <iframe width="100%" height="345px" src="{{$car->videoUrl}}?html5=1" allowfullscreen=""
-                                    frameborder="0">
-                            </iframe>-->
                     <iframe width="100%" height="150px" frameborder="0" allowfullscreen
-                            src="{{$car->videoUrl}}?autoplay=1">
+                            src="{{$car->imageurl}}">
                     </iframe>
                     <!-- script for play-list -->
 
@@ -97,15 +94,53 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                     </div>
                 </div>
+
                 <div class="response">
-                    <h4>{!! $car->title!!}</h4>
+                    <h4> {!! $car->title!!}</h4>
+
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="media response-info">
+                                <span class="carDescription">Transmission </span>
+                                <div class="media-body response-text-right">
+                                    {!! $car->Transmission !!}
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="media response-info">
+                                <span class="carDescription">Engine Capacity </span>
+                                <div class="media-body response-text-right">
+                                    {!! $car->car_cc !!} cc
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="media response-info">
+                                <span class="carDescription">Price Per Day  </span>
+                                <div class="media-body response-text-right">
+                                    Ksh. {!! $car->price_per_day !!}
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="media response-info">
+                        <span class="carDescription">Description :</span>
                         <div class="media-body response-text-right">
                             {!! $car->content!!}
 
                         </div>
                         <div class="clearfix"></div>
                     </div>
+
                 </div>
 
                 <!-- /agileits -->
@@ -116,53 +151,73 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         </div>
 
-        <div class="clearfix">
+        <div class="clearfix"></div>
 
             <!--body wrapper end-->
             <!-- /w3l-agile -->
         </div>
-        <div class="clearfix">
+        <div class="clearfix"></div>
             <div class="customer-details">
                 <form>
 
-                    <div class="form-group">
-                        <label for="inputAddress2">Meeting Location</label>
-                        <input type="text" class="form-control" id="inputAddress2"
-                               placeholder="i.e Nairobi,Junction Mall ngong road">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="location">Meeting Location</label>
+                            <input type="text" class="form-control" id="location"
+                                   placeholder="i.e Nairobi,Junction Mall ngong road">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="phone">M-pesa Mobile Phone</label>
+                            <input type="text" class="form-control" id="phone" value="">
+                        </div>
+
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="startDate">Start Date</label>
+                            <label for="startDate">Start Date :</label>
                             <input type="date" id="startDate" name="startDate"
                                    value="{{date("Y-m-j")}}"
                                    min="2018-11-31" max="2019-12-31">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="endDate">End Date</label>
+                            <label for="endDate">End Date :</label>
                             <input type="date" id="endDate" name="endDate"
                                    value="today"
                                    min="2018-11-31" max="2019-12-31">
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label for="NumberOfDay">Number of days</label>
+                            <label for="NumberOfDay">Number of days :</label>
                             <input type="text" id="NumberOfDay" name="NumberOfDay"
                                    value="" readonly>
                         </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="phone">M-pesa Mobile Phone</label>
-                        <input type="text" class="form-control" id="phone" value="">
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="TotalAmount">Total Amount</label>
+                            <input type="text" class="form-control" id="TotalAmount" readonly>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="DepositAmount">Deposit Expected</label>
+                            <input type="text" class="form-control" id="DepositAmount" value="" readonly>
+                        </div>
                     </div>
+
                     <button type="submit" class="btn btn-primary">Request Now</button>
+
                 </form>
+
             </div>
-        <br/>
-                    <!--body wrapper end-->
-                @include('footer')
-                <!--footer section end-->
-                    <!-- /w3l-agile -->
-                    <!-- main content end-->
+
+    </div>
+        <div class="clearfix"></div>
+            <!--body wrapper end-->
+        @include('footer')
+        <!--footer section end-->
+            <!-- /w3l-agile -->
+            <!-- main content end-->
 </section>
 
 <script src="js/jquery.nicescroll.js"></script>
