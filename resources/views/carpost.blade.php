@@ -194,7 +194,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-6">
                             <label for="TotalAmount">Total Amount</label>
                             <input type="text" class="form-control" id="TotalAmount" readonly>
                         </div>
