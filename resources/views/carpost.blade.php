@@ -135,56 +135,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <!-- /w3l-agile -->
         </div>
         <div class="clearfix">
-            <div>
+            <div class="customer-details">
                 <form>
 
                     <div class="form-group">
-                        <label for="inputAddress">Full Name</label>
-                        <input type="text" class="form-control" id="FullName" readonly>
+                        <label for="inputAddress2">Meeting Location</label>
+                        <input type="text" class="form-control" id="inputAddress2"
+                               placeholder="i.e Nairobi,Junction Mall ngong road">
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="startDate">Start Date</label>
                             <input type="date" id="startDate" name="startDate"
-                                   value=""
+                                   value="{{date("Y-m-j")}}"
                                    min="2018-11-31" max="2019-12-31">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label for="endDate">End Date</label>
                             <input type="date" id="endDate" name="endDate"
                                    value="today"
                                    min="2018-11-31" max="2019-12-31">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Address 2</label>
-                        <input type="text" class="form-control" id="inputAddress2"
-                               placeholder="Apartment, studio, or floor">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">City</label>
-                            <input type="text" class="form-control" id="inputCity">
-                        </div>
+
                         <div class="form-group col-md-4">
-                            <label for="inputState">State</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="inputZip">Zip</label>
-                            <input type="text" class="form-control" id="inputZip">
+                            <label for="NumberOfDay">Number of days</label>
+                            <input type="text" id="NumberOfDay" name="NumberOfDay"
+                                   value="" readonly>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Check me out
-                            </label>
-                        </div>
+                    <div class="form-group col-md-4">
+                        <label for="phone">M-pesa Mobile Phone</label>
+                        <input type="text" class="form-control" id="phone" value="">
                     </div>
                     <button type="submit" class="btn btn-primary">Request Now</button>
                 </form>
