@@ -83,11 +83,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <iframe width="100%" height="150px" frameborder="0" allowfullscreen
                             src="{{$video->videoUrl}}?autoplay=1">
                     </iframe>
-                    <div><a href="">Book this Machine</a></div>
-                    <div class="alert alert-info fade in">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        Car Category: {{$video->category}}
-                    </div>
                     <!-- script for play-list -->
 
                     <!-- //script for play-list -->
@@ -102,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                      data-layout="button_count" data-size="small" data-mobile-iframe="true">
                                     <a class="fb-xfbml-parse-ignore" target="_blank"
                                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frentmycar.co.ke%2Fmypost%3Fvideo%3D{{$video->id}}&amp;src=sdkpreparse">
-                                        <button type="button" class="btn btn-primary btn-sm"><span class="fa fa-share"> Share</span>
+                                        <button type="button" class="btn btn-primary btn-sm"><span class="fa fa-share"> Share this car</span>
                                         </button>
                                     </a>
                                 </div>

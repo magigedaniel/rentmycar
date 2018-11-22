@@ -84,6 +84,11 @@ h1, h2, h3, h4, h5 {
     font-weight: bold;
     padding: 8px 0;
 }
+.customer-details{
+    border: 25px solid green;
+    padding: 25px;
+    margin: 25px;
+}
 
 .header_stats .stat-highlight {
     color: #ef4836;
