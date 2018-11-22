@@ -151,73 +151,79 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         </div>
 
-        <div class="clearfix"></div>
+        <div class="clearfix">
 
             <!--body wrapper end-->
             <!-- /w3l-agile -->
         </div>
-        <div class="clearfix"></div>
-            <div class="customer-details">
-                <form>
+        <div class="customer-details">
+            <form>
 
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="location">Meeting Location</label>
-                            <input type="text" class="form-control" id="location"
-                                   placeholder="i.e Nairobi,Junction Mall ngong road">
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <label for="phone">M-pesa Mobile Phone</label>
-                            <input type="text" class="form-control" id="phone" value="">
-                        </div>
-
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="startDate">Start Date :</label>
-                            <input type="date" id="startDate" name="startDate"
-                                   value="{{date("Y-m-j")}}"
-                                   min="2018-11-31" max="2019-12-31">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="endDate">End Date :</label>
-                            <input type="date" id="endDate" name="endDate"
-                                   value="today"
-                                   min="2018-11-31" max="2019-12-31">
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            <label for="NumberOfDay">Number of days :</label>
-                            <input type="text" id="NumberOfDay" name="NumberOfDay"
-                                   value="" readonly>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="TotalAmount">Total Amount</label>
-                            <input type="text" class="form-control" id="TotalAmount" readonly>
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            <label for="DepositAmount">Deposit Expected</label>
-                            <input type="text" class="form-control" id="DepositAmount" value="" readonly>
-                        </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="location">Enter Pick Up Location</label>
+                        <input type="text" class="form-control" id="location"
+                               placeholder="i.e Nairobi,Junction Mall ngong road">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Request Now</button>
+                    <div class="form-group col-md-6">
+                        <label for="phone">M-pesa Mobile Phone</label>
+                        <input type="text" class="form-control" id="phone" value="">
+                    </div>
 
-                </form>
+                </div>
 
-            </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="startDate">Start Date :</label>
+                        <input type="date" id="startDate" name="startDate"
+                               value="{{date("Y-m-j")}}"
+                               min="2018-11-31" max="2019-12-31">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="endDate">End Date :</label>
+                        <input type="date" id="endDate" name="endDate"
+                               value="today"
+                               min="2018-11-31" max="2019-12-31">
+                    </div>
 
-    </div>
-        <div class="clearfix"></div>
-            <!--body wrapper end-->
-        @include('footer')
-        <!--footer section end-->
-            <!-- /w3l-agile -->
-            <!-- main content end-->
+                    <div class="form-group col-md-4">
+                        <label for="NumberOfDay">Number of days :</label>
+                        <input type="text" id="NumberOfDay" name="NumberOfDay"
+                               value="" readonly>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="TotalAmount">Total Amount</label>
+                        <input type="text" class="form-control" id="TotalAmount" readonly>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="DepositAmount">Deposit Expected</label>
+                        <input type="text" class="form-control" id="DepositAmount" value="" readonly>
+                    </div>
+                </div>
+
+                <div class="row">
+
+
+                        <button type="submit" class="btn btn-primary md-4">Request Now</button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+        <div class="clearfix">
+        </div>
+        <!--body wrapper end-->
+    @include('footer')
+    <!--footer section end-->
+        <!-- /w3l-agile -->
+        <!-- main content end-->
 </section>
 
 <script src="js/jquery.nicescroll.js"></script>
