@@ -26,7 +26,7 @@ use Symfony\Component\HttpFoundation\Response;
 //    return view('index');
 //});
 //Registration form
-Route::get('/mypost', function () {
+Route::get('/rentCar', function () {
 
     if (!empty($_GET['car'])) {
         $user = Auth::user();
@@ -37,7 +37,7 @@ Route::get('/mypost', function () {
         $cars = DB::table('carpost')->get();
         $current_year = DB::table('carpost')->max('year');
         $vote_setting = DB::table('vote_setting')->first();
-        return view('carpost', compact('cars', 'user', 'car', 'current_year', 'vote_setting'));
+        return view('carpost', compact( 'user', 'car', 'current_year', 'vote_setting'));
     }
     return view('index');
     //return view('carpost',compact('video'));

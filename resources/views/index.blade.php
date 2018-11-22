@@ -198,10 +198,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                                     @foreach($car_in_category as $car)
                                         <div class="col-md-3 content-grid last-grid">
-                                            <a href="{!!'/mypost?car='. $car->id.'&id='!!}">
+                                            <a href="{!!'/rentCar?car='. $car->id.'&id='!!}">
                                                 <img src="{!! $car->imageurl!!}"
                                                      title="Click to Hire"></a>
-                                            {{--<div class="inner-info"><a href="{!!'/mypost?car='. $car->id.'&id=' !!}">
+                                            {{--<div class="inner-info"><a href="{!!'/rentCar?car='. $car->id.'&id=' !!}">
                                                     <h5>{{$car->title}}</h5></a></div>--}}
                                             <div class="second">
                                                 <div class="listings__title">{{$car->title}}</div>
@@ -211,7 +211,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                 <div class="listings__price">
                                                     <span>KSh </span>{{$car-> price_per_day}} per day
                                                 </div>
-                                                <a href="{!!'/mypost?car='. $car->id.'&id='!!}">
+                                                <a href="{!!'/rentCar?car='. $car->id.'&id='!!}">
                                                     <button type="button" class="btn btn-success" id="btn-car">Rent Me</button></a>
                                             </div>
 

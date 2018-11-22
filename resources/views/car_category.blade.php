@@ -57,7 +57,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                 <h5 class="text-black text-sm" style="font-weight: 800; text-align: center">{{$video_archive1->title}}</h5>
                                             <!--</div>-->
                                             <div class="thumbnail">
-                                                <a href="{!!'/mypost?video='. $video_archive1->id.'&id='!!}" target="_blank">
+                                                <a href="{!!'/rentCar?video='. $video_archive1->id.'&id='!!}" target="_blank">
                                                     <img id="image{{$video_archive1->id}}" src="{{asset("$video_archive1->imageurl")}}"  title="Click to Play" style="width:100%;" onmouseover="showVideo('{{$video_archive1->id}}')">
 <!--                                                    <iframe width="100%" height="345px" src="{{$video_archive1->videoUrl}}?html5=1" allowfullscreen=""
                                                             frameborder="0" style="display: none" id="video{{$video_archive1->id}}">
@@ -65,7 +65,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                                     <!--<div class="caption">-->
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <a href="{!!'/mypost?video='. $video_archive1->id.'&id=' !!}" target="_blank">
+                                                                <a href="{!!'/rentCar?video='. $video_archive1->id.'&id=' !!}" target="_blank">
                                                                     <button type="button" class="btn btn-success btn-sm" id="btn-car"><span class="fa fa-play-circle"> Click to play now</span></button>
                                                                 </a>
                                                             </div>
