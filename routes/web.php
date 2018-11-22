@@ -33,11 +33,11 @@ Route::get('/mypost', function () {
         //$userid = Auth::user()->id;
         $id = $_GET['car'];
         DB::table('carpost')->where('id', $id)->increment('views');
-        $video = DB::table('carpost')->where('id', $id)->first();
-        $videos = DB::table('carpost')->get();
+        $car = DB::table('carpost')->where('id', $id)->first();
+        $cars = DB::table('carpost')->get();
         $current_year = DB::table('carpost')->max('year');
         $vote_setting = DB::table('vote_setting')->first();
-        return view('carpost', compact('videos', 'user', 'video', 'current_year', 'vote_setting'));
+        return view('carpost', compact('cars', 'user', 'car', 'current_year', 'vote_setting'));
     }
     return view('index');
     //return view('carpost',compact('video'));
@@ -45,7 +45,7 @@ Route::get('/mypost', function () {
 
 //Vote
 //Route::get('/vote',function ()
-//{
+//
 //
 //
 //});

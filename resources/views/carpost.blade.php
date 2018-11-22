@@ -7,26 +7,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>RentMyCar.co.ke | {!! $video->title!!}</title>
+    <title>RentMyCar.co.ke | {!! $car->title!!}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="RentMyCar.co.ke"/>
 
 
-    <meta property="og:url" content="https://rentmycar.co.ke/mypost?video={{$video->id}}"/>
+    <meta property="og:url" content="https://rentmycar.co.ke/mypost?video={{$car->id}}"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Rent My car"/>
     <meta property="og:description" content="Rent my car"/>
-    <meta property="og:image" content="https://Rentmycar.co.ke/{!! $video->imageurl!!}"/>
-
-
-    <script type="applicatdion/x-javascript"> addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-            }, false);
-            function hideURLbar() {
-            window.scrollTo(0, 1);
-            }
-    </script>
+    <meta property="og:image" content="https://Rentmycar.co.ke/{!! $car->imageurl!!}"/>
+    
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <!-- Custom CSS -->
@@ -77,11 +69,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <!--/music-right-->
 
                 <div class="single_left"><!--/video-main-->
-                <!--                            <iframe width="100%" height="345px" src="{{$video->videoUrl}}?html5=1" allowfullscreen=""
+                <!--                            <iframe width="100%" height="345px" src="{{$car->videoUrl}}?html5=1" allowfullscreen=""
                                     frameborder="0">
                             </iframe>-->
                     <iframe width="100%" height="150px" frameborder="0" allowfullscreen
-                            src="{{$video->videoUrl}}?autoplay=1">
+                            src="{{$car->videoUrl}}?autoplay=1">
                     </iframe>
                     <!-- script for play-list -->
 
@@ -96,7 +88,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                      data-href="https://rentmycar.co.ke/mypost?video={{url()->full()}}"
                                      data-layout="button_count" data-size="small" data-mobile-iframe="true">
                                     <a class="fb-xfbml-parse-ignore" target="_blank"
-                                       href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frentmycar.co.ke%2Fmypost%3Fvideo%3D{{$video->id}}&amp;src=sdkpreparse">
+                                       href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Frentmycar.co.ke%2Fmypost%3Fvideo%3D{{$car->id}}&amp;src=sdkpreparse">
                                         <button type="button" class="btn btn-primary btn-sm"><span class="fa fa-share"> Share this car</span>
                                         </button>
                                     </a>
@@ -106,10 +98,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                 </div>
                 <div class="response">
-                    <h4>{!! $video->title!!}</h4>
+                    <h4>{!! $car->title!!}</h4>
                     <div class="media response-info">
                         <div class="media-body response-text-right">
-                            {!! $video->content!!}
+                            {!! $car->content!!}
 
                         </div>
                         <div class="clearfix"></div>
