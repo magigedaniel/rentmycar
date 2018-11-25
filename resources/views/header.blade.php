@@ -1,4 +1,3 @@
-
 <!--<style>
     .border-all{
         /*  border: solid 2px #9a9a9a;
@@ -43,13 +42,13 @@
         <a href="/contact" class="menu">News</a>
         <a href="/faq" class="menu">FAQ</a>
         @if(!empty($user->fname))
-        @if($user->usertype == "admin" || $user->usertype == "super-user")
+    @if($user->usertype == "admin" || $user->usertype == "super-user")
         <a href="/admin" class="menu">Admin</a>
         @endif
-        @endif
+@endif
         <div id="loginpop" class="pull-right">
             @if(!empty($user->fname))
-            <a href="{{ url('/logout') }}"
+    <a href="{{ url('/logout') }}"
                onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();"
                class="" style="color: whitesmoke;" title="Click to Log out">
@@ -58,9 +57,9 @@
                 {{ csrf_field() }}
             </form>
             @else
-            <a href="/login" id="" >
-                <span style="">Login <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a>
-            @endif
+    <a href="/login" id="" >
+        <span style="">Login <i class="arrow glyphicon glyphicon-chevron-right"></i></span></a>
+@endif
 
         </div>
         ----
@@ -68,59 +67,67 @@
 
 </div>-->
 <style>
-    li a{
+    li a {
         color: #ffffff;
         /*font-size: 16px;*/
         font-weight: 500;
     }
-    .icon-bar{
-        background: #ffffff 
+
+    .icon-bar {
+        background: #ffffff
     }
 </style>
 <nav class="navbar" style="background: #9c1d1d;">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" style="border-color: black;color: #ffffff">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"
+                    style="border-color: black;color: #ffffff">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>                        
+                <span class="icon-bar"></span>
             </button>
-            
-            <a class="navbar-brand" href="/" style="padding-top: 0px;padding-left: 0;float: left; margin-bottom: 0px"><img src="{{asset('images/logo.png')}} "></a>
+
+            <a class="navbar-brand" href="/"
+               style="padding-top: 0px;padding-left: 0;float: left; margin-bottom: 0px"><img
+                        src="{{asset('images/logo.png')}} "></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
 
                 <li><a href="/" class="active menu">Home</a></li>
 
-                <li><a href="/about" >About Us</a></li>
-                <li> <a href="/contact" >Contact Us</a></li>
-{{--
-                <li> <a href="/faq" >FAQ</a>
---}} @if(!empty($user->fname))
-                @if($user->usertype=="merchant")
-                    <li><a href="/NewPost" >Register New Car</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                {{--
+                                <li> <a href="/faq" >FAQ</a>
+                --}} @if(!empty($user->fname))
+                    @if($user->usertype=="merchant")
+                        <li><a href="/NewPost">Register New Car</a></li>
+                        <li><a href="/NewPost">Merchant Dashboard</a></li>
+                    @endif
+                @if($user->usertype=="user")
+                            <li><a href="/memberDashboard">My Dashboard</a></li>
                     @endif
 
                     @if($user->usertype == "admin" || $user->usertype == "super-user")
-                    <li><a href="/admin">Admin</a></li>
+                        <li><a href="/admin">Admin</a></li>
                     @endif
-                    @endif
+                @endif
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
                 @if(!empty($user->fname))
-                <li>
-                    <a href="{{ url('/logout') }}"
-                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                       class="glyphicon glyphicon-log-out">
-                        Logout({!! $user->fname !!})</a>
-                </li>
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
+                    <li>
+                        <a href="{{ url('/logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                           class="glyphicon glyphicon-log-out">
+                            Logout({!! $user->fname !!})</a>
+                    </li>
+                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                 @else
-                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 @endif
             </ul>
         </div>

@@ -22,7 +22,7 @@ class OrderController extends Controller
         //return response()->json(['success' => 'Data is successfully added ']);
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->usertype == "admin" || $user->usertype == "super-user") {
+            if ($user->usertype == "user" ) {
 
 
                 $number_of_day = $request->NumberOfDay;
@@ -58,8 +58,9 @@ class OrderController extends Controller
 
                     ]
                 );
-                return response()->json(['success' => 'Booking is successfully Placed for car  ' . $car_reg ]);
+                return response()->json(['success' => 'Booking is successfully Placed for car  ' . $car_reg .'go to Dashboard to followup']);
             }
+            return response()->json(['error' => 'Create a customer account to rent car (Service available to customer only) ']);
         }
         return response()->json(['error' => 'You are not logged in. Login to rent now ']);
 

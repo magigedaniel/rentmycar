@@ -113,6 +113,9 @@ Route::post('contact/email', 'HomeController@sendEmail');
 //Post Order
 Route::post('car/order', 'OrderController@postCarOrder');
 
+//Dashboard Routes
+Route::get('/memberDashboard', 'DashboardController@getUserDashboard');
+
 //Vote
 Route::get('/vote', 'HomeController@vote');
 Route::get('/NewPost', 'HomeController@getNewPost');
