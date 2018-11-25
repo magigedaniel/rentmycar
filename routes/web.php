@@ -110,6 +110,9 @@ Route::get('/contact', function () {
 
 Route::post('contact/email', 'HomeController@sendEmail');
 
+//Post Order
+Route::post('car/order', 'OrderController@postCarOrder');
+
 //Vote
 Route::get('/vote', 'HomeController@vote');
 Route::get('/NewPost', 'HomeController@getNewPost');

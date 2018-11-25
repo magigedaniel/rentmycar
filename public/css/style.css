@@ -1960,6 +1960,10 @@ img.media-object {
     /*padding-top: 1.2em;*/
 }
 
+.required{
+    color: red;
+    font-weight: bold;
+}
 .coment-form {
     margin: 3em 0;
 }

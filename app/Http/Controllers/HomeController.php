@@ -28,8 +28,8 @@ class HomeController extends Controller {
         //dd('sssas');
         $current_year = DB::table('carpost')->max('year');
         $cars = array();
-        $video_categories = DB::table('car_category')->get();
-        foreach ($video_categories as $car_category) {
+        $car_categories = DB::table('car_category')->get();
+        foreach ($car_categories as $car_category) {
             $car_in_category = DB::table('carpost')
                 ->where([ ['category', '=', $car_category->name]])
                 ->orderBy('id', 'desc')
@@ -62,7 +62,7 @@ class HomeController extends Controller {
     //Method that return pages
 
     public function sendEmail(Request $request) {
-        $to = "ewanyonyi@deasff.com";
+        $to = "magigedaniel@gmail.com";
         $subject = $request->input('subject');
         $txt = $request->input('message');
         $name = $request->input('name');

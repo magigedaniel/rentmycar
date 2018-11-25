@@ -53,11 +53,11 @@ class CarController extends Controller {
     }
 
     public function getVideoById($id) {
-        
+
     }
 
     public function updateVideo($id) {
-        
+
     }
 
     public function deleteVideo($id) {
@@ -208,7 +208,6 @@ class CarController extends Controller {
                         ->setCellValue('I3', 'Percentage Points')
                         ->setCellValue('J3', 'Total percentage')
                         ->setCellValue('K3', 'Position');
-
                 $php_excel->getActiveSheet()->mergeCells('A1:K1');
                 $php_excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal('center');
                 $php_excel->getActiveSheet()->getStyle('A1')->applyFromArray(
