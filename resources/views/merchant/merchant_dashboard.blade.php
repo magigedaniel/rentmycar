@@ -36,9 +36,10 @@
                     <div class="container-fluid">
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                            <button type="button" class="btn btn-primary">All Rents</button>
-                            <button type="button" class="btn btn-primary">Pending Car</button>
-                            <button type="button" class="btn btn-primary">Approved Car</button>
+                            <button type="button" class="btn btn-primary">Waiting Action</button>
+                            <button type="button" class="btn btn-primary">Pending Payment</button>
+                            <button type="button" class="btn btn-primary">My Car Rented</button>
+                            <button type="button" class="btn btn-primary">All</button>
                         </div>
 
                         <!-- Collect the nav links, forms, and other content for toggling -->

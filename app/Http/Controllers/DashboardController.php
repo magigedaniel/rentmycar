@@ -28,7 +28,7 @@ class DashboardController extends Controller
             return view('customer_dashboard', compact('user', 'user_all_order'));
         }
 
-        return view('/login');
+        return view('auth.login');
 
     }
 
@@ -37,14 +37,31 @@ class DashboardController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             $user_all_order = DB::table('car_order')
-                ->where([['user_id', '=', $user->id]])
+                ->where([['merchant_id', '=', $user->id]])
                 ->get();
             // dd($user_all_order);
             return view('merchant.merchant_dashboard', compact('user', 'user_all_order'));
         }
 
-        return view('/login');
+        return view('auth.login');
 
+    }
+
+
+    public function getDepositPay(Request $request) {
+        if (Auth::check()) {
+
+            $user = Auth::user();
+            //dd($user->usertype );
+            $user_all_order = DB::table('car_order')
+                ->where([['id', '=', $request->id]])
+                ->first();
+
+            if ($user->usertype == "user") {
+                return view('payment',compact('user_all_order','user'));
+            }
+            return view('admin.admin404', compact('user'));
+        }
     }
 
 }

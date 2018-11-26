@@ -24,6 +24,7 @@ use Symfony\Component\HttpFoundation\Response;
 //Home page index
 //Route::get('/', function () {
 //    return view('index');
+
 //});
 //Registration form
 Route::get('/rentCar', function () {
@@ -116,6 +117,9 @@ Route::post('car/order', 'OrderController@postCarOrder');
 //Dashboard Routes
 Route::get('/memberDashboard', 'DashboardController@getUserDashboard');
 Route::get('/merchantDashboard', 'DashboardController@getMerchantDashboard');
+
+Route::get('/memberDashboard/deposit/pay/{id}', 'DashboardController@getDepositPay');
+
 
 //Vote
 Route::get('/vote', 'HomeController@vote');

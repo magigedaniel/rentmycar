@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="RentMyCar.co.ke"/>
+    <meta name="_token" content="{{csrf_token()}}"/>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <!-- Custom CSS -->
     <link href="css/style.css" rel='stylesheet' type='text/css'/>
     <!-- Graph CSS -->
     <link href="css/font-awesome.css" rel="stylesheet">
+
     <!-- jQuery -->
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.css" type='text/css'/>
@@ -45,7 +47,10 @@
                     </div><!-- /.container-fluid -->
                 </nav>
                 <div class="inner-content">
-                    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+                    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+                            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                            crossorigin="anonymous">
+                    </script>
                     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
                     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 
@@ -77,15 +82,79 @@
                                 <td>{!! $order_details->deposit_amount!!}</td>
                                 <td>{!! $order_details->total_amount!!}</td>
                                 <td>{!! $order_details->merchant_approval_status!!}</td>
-                                <td>Pay deposit</td>
+                                <td>
+                                    <a href="/memberDashboard/deposit/pay/{{$order_details->id}}"> <button class="btn btn-info btn-sm"  style="margin-left: 2px"><span class="fa fa-trash"> Pay Deposit</span></button></a>
+                                </td>
                             </tr>
                         @endforeach
 
                         </tbody>
                     </table>
+
+
                 </div>
             </div>
 
+
+            <script>
+                jQuery(document).ready(function () {
+
+                    jQuery('#buttonPayDeposit').click(function (e) {
+                        e.preventDefault();
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                            }
+                        });
+                        //re-HIDE field
+                        jQuery('.alert-danger').hide();
+                        jQuery('.alert').hide();
+                        jQuery('#ajaxSubmit').hide();
+                        jQuery('#loading').show();
+
+
+                        //Js Field validation
+                        var mpesaphone = jQuery('#mpesaMobilePhone').val();
+                        var location = jQuery('#location').val();
+
+                        if (mpesaphone == '') {
+                            jQuery('.alert-danger').show();
+                            jQuery('.alert-danger').html('Fill all required field *');
+                            jQuery('#ajaxSubmit').show();
+                            jQuery('#loading').hide();
+                            //alert('M-pesa Mobile Phone');
+                            return
+                        }
+
+
+                        jQuery.ajax({
+                            url: "{{ url('/car/order') }}",
+                            method: 'post',
+                            data: {
+                                startDate: jQuery('#startDate').val(),
+                                mpesaMobilePhone: jQuery('#mpesaMobilePhone').val(),
+                                endDate: jQuery('#endDate').val(),
+                                DepositAmount: jQuery('#DepositAmount').val(),
+                                TotalAmount: jQuery('#TotalAmount').val(),
+                                NumberOfDay: jQuery('#NumberOfDay').val(),
+                                car_reg: jQuery('#car_reg').val()
+                            },
+                            success: function (result) {
+                                if (result.success) {
+                                    jQuery('.alert').show();
+                                    jQuery('.alert').html(result.success);
+                                    jQuery('#loading').hide();
+                                }
+                                else {
+                                    jQuery('.alert-danger').show();
+                                    jQuery('.alert-danger').html(result.error);
+                                    jQuery('#loading').hide();
+                                }
+                            }
+                        });
+                    });
+                });
+            </script>
 
             <!--body wrapper start-->
 
