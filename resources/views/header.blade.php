@@ -103,7 +103,7 @@
                 --}} @if(!empty($user->fname))
                     @if($user->usertype=="merchant")
                         <li><a href="/NewPost">Register New Car</a></li>
-                        <li><a href="/NewPost">Merchant Dashboard</a></li>
+                        <li><a href="/merchantDashboard">Merchant Dashboard</a></li>
                     @endif
                 @if($user->usertype=="user")
                             <li><a href="/memberDashboard">My Dashboard</a></li>

@@ -62,6 +62,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <input id="cartitle" type="text" class="form-control" name="cartitle" required autofocus>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="cartitle" class="col-md-4 control-label">Vehicle No Plate</label>
+                            <div class="col-md-6">
+                                <input id="car_reg" type="text" class="form-control" name="car_reg" required autofocus>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <label for="Transmission" class="col-md-4 control-label">Transmission</label>

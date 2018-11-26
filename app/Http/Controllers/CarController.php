@@ -42,14 +42,16 @@ class CarController extends Controller {
         $cartitle = $request->input('cartitle');
         $car_content = $request->input('car_content');
         $vcategory = $request->input('category');
+        $car_reg=$request->input('car_reg');
+        $PricePerDay=$request->input('PricePerDay');
         $year = date("Y");
 
         DB::table('carpost')->insert(
-                ['userID' => $userId, 'title' => $cartitle, 'videoUrl' => $vimageurl, 'imageurl' => $vimageurl, 'content' => $car_content, 'category' => $vcategory, 'year' => $year]
+                ['userID' => $userId, 'title' => $cartitle, 'videoUrl' => $vimageurl, 'imageurl' => $vimageurl, 'content' => $car_content, 'category' => $vcategory,'car_reg'=>$car_reg,'price_per_day'=>$PricePerDay, 'year' => $year]
         );
 //Redirect to that video
         $videoId = DB::table('carpost')->where('userID', $userId)->pluck('id')->last();
-        return redirect('/mypost?video=' . $videoId);
+        return redirect('/rentCar?car=' . $videoId);
     }
 
     public function getVideoById($id) {

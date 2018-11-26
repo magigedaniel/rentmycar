@@ -115,6 +115,7 @@ Route::post('car/order', 'OrderController@postCarOrder');
 
 //Dashboard Routes
 Route::get('/memberDashboard', 'DashboardController@getUserDashboard');
+Route::get('/merchantDashboard', 'DashboardController@getMerchantDashboard');
 
 //Vote
 Route::get('/vote', 'HomeController@vote');

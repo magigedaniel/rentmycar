@@ -15,13 +15,32 @@ use function public_path;
 use function redirect;
 use function view;
 
-class DashboardController  extends Controller
+class DashboardController extends Controller
 {
     public function getUserDashboard(Request $request)
     {
         if (Auth::check()) {
             $user = Auth::user();
-            return view('customer_dashboard', compact('user'));
+            $user_all_order = DB::table('car_order')
+                ->where([['user_id', '=', $user->id]])
+                ->get();
+            // dd($user_all_order);
+            return view('customer_dashboard', compact('user', 'user_all_order'));
+        }
+
+        return view('/login');
+
+    }
+
+    public function getMerchantDashboard(Request $request)
+    {
+        if (Auth::check()) {
+            $user = Auth::user();
+            $user_all_order = DB::table('car_order')
+                ->where([['user_id', '=', $user->id]])
+                ->get();
+            // dd($user_all_order);
+            return view('merchant.merchant_dashboard', compact('user', 'user_all_order'));
         }
 
         return view('/login');
