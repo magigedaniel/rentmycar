@@ -47,22 +47,21 @@
                     </div><!-- /.container-fluid -->
                 </nav>
                 <div class="inner-content">
-
-                    <div class="alert alert-success" style="display:none"></div>
                     <form id="myForm">
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" class="form-control" id="name">
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="Amount">Amount (KES)</label>
+                                <input type="email" class="form-control" id="Amount" readonly value="{{$user_all_order->deposit_amount}}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="MpesaPhone">M-Pesa Phone No</label>
+                                <input type="text" class="form-control" id="MpesaPhone" name="MpesaPhone" required value="{{$user_all_order->phone_used}}">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="type">Type:</label>
-                            <input type="text" class="form-control" id="type">
-                        </div>
-                        <div class="form-group">
-                            <label for="price">Price:</label>
-                            <input type="text" class="form-control" id="price">
-                        </div>
-                        <button class="btn btn-primary" id="ajaxSubmit">Submit</button>
+                        <div class="alert alert-success" style="display:none"></div>
+
+                        <button class="btn btn-info" id="ajaxSubmit">Pay Now</button>
                     </form>
 
 
@@ -80,12 +79,11 @@
                                     }
                                 });
                                 jQuery.ajax({
-                                    url: "{{ url('/car/order') }}",
+                                    url: "{{ url('/memberDashboard/deposit/pay') }}",
                                     method: 'post',
                                     data: {
-                                        name: jQuery('#name').val(),
-                                        type: jQuery('#type').val(),
-                                        price: jQuery('#price').val()
+                                        Amount: jQuery('#Amount').val(),
+                                        Phone: jQuery('#MpesaPhone').val()
                                     },
                                     success: function (result) {
                                         jQuery('.alert').show();
@@ -95,6 +93,7 @@
                             });
                         });
                     </script>
+                <br/>
                 </div>
             </div>
             <!--body wrapper start-->

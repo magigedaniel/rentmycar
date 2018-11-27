@@ -64,4 +64,22 @@ class DashboardController extends Controller
         }
     }
 
+    public function postDepositPay(Request $request) {
+
+        if (Auth::check()) {
+            return response()->json(['success' => 'Success post']);
+
+            $user = Auth::user();
+            //dd($user->usertype );
+            $user_all_order = DB::table('car_order')
+                ->where([['id', '=', $request->id]])
+                ->first();
+
+            if ($user->usertype == "user") {
+                return view('payment',compact('user_all_order','user'));
+            }
+            return view('admin.admin404', compact('user'));
+        }
+    }
+
 }
