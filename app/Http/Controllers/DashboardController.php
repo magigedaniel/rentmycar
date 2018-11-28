@@ -49,7 +49,8 @@ class DashboardController extends Controller
     }
 
 
-    public function getDepositPay(Request $request) {
+    public function getDepositPay(Request $request)
+    {
         if (Auth::check()) {
 
             $user = Auth::user();
@@ -59,37 +60,37 @@ class DashboardController extends Controller
                 ->first();
 
             if ($user->usertype == "user") {
-                return view('payment',compact('user_all_order','user'));
+                return view('payment', compact('user_all_order', 'user'));
             }
             return view('admin.admin404', compact('user'));
         }
     }
 
-    public function postDepositPay(Request $request) {
+    public function postDepositPay(Request $request)
+    {
 
-        if (Auth::check()) {
-            $amount=$this->MpesaPayment(100,'254710775577');
-            return response()->json(['success' => 'Success post '.$amount]);
-
+        if (Auth::check()){
             $user = Auth::user();
-            //dd($user->usertype );
-            $user_all_order = DB::table('car_order')
-                ->where([['id', '=', $request->id]])
-                ->first();
+            $phone = $request->input('Phone');
+            $amount = $request->input('Amount');
 
-            if ($user->usertype == "user") {
-                return view('payment',compact('user_all_order','user'));
-            }
-            return view('admin.admin404', compact('user'));
+            //Trim phone no to replace 0 with 254
+            $phone = ltrim($phone, '0');
+            $phone = '254' . $phone;
+            $Mpesa_response= $this->MpesaPayment($amount, $phone);
+            return response()->json(['success' => 'Success post ' . $Mpesa_response]);
+
+
         }
     }
 
-    public function MpesaPayment($amount,$phone){
+    public function MpesaPayment($amount, $phone)
+    {
         $url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer 1HOfMGKdlHAYhyduAfqjRagEiMbR')); //setting custom header
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization:Bearer DBSqSf6LYXyGsHVPvt0DZeTofCNw')); //setting custom header
 
 
         $curl_post_data = array(
@@ -116,20 +117,21 @@ class DashboardController extends Controller
         $curl_response = curl_exec($curl);
         return $curl_response;
 
-}
+    }
 
-Public function MpesaTokenGenerate(){
-    $url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
+    Public function MpesaTokenGenerate()
+    {
+        $url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
 
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, $url);
-    $credentials = base64_encode('csyTPQ2MV39Dw3jpYnuRWhreAf1ospog:Enu5fwa0WUu5pHWB');
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$credentials)); //setting a custom header
-    curl_setopt($curl, CURLOPT_HEADER, true);
-    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        $credentials = base64_encode('csyTPQ2MV39Dw3jpYnuRWhreAf1ospog:Enu5fwa0WUu5pHWB');
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Basic ' . $credentials)); //setting a custom header
+        curl_setopt($curl, CURLOPT_HEADER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
-    $curl_response = curl_exec($curl);
+        $curl_response = curl_exec($curl);
 
-}
+    }
 
 }
