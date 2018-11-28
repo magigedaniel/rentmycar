@@ -15,6 +15,7 @@ use function public_path;
 use function redirect;
 use function view;
 
+
 class DashboardController extends Controller
 {
     public function getUserDashboard(Request $request)
@@ -67,7 +68,8 @@ class DashboardController extends Controller
     public function postDepositPay(Request $request) {
 
         if (Auth::check()) {
-            return response()->json(['success' => 'Success post']);
+            $amount=$this->MpesaPayment(100,'254710775577');
+            return response()->json(['success' => 'Success post '.$amount]);
 
             $user = Auth::user();
             //dd($user->usertype );
@@ -81,5 +83,53 @@ class DashboardController extends Controller
             return view('admin.admin404', compact('user'));
         }
     }
+
+    public function MpesaPayment($amount,$phone){
+        $url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer 1HOfMGKdlHAYhyduAfqjRagEiMbR')); //setting custom header
+
+
+        $curl_post_data = array(
+            //Fill in the request parameters with valid values
+            'BusinessShortCode' => '174379',
+            'Password' => 'MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTgxMTIwMTExNjMw',
+            'Timestamp' => '20181120111630',
+            'TransactionType' => 'CustomerPayBillOnline',
+            'Amount' => $amount,
+            'PartyA' => $phone,
+            'PartyB' => '174379',
+            'PhoneNumber' => $phone,
+            'CallBackURL' => 'http://mobitechleo.com/',
+            'AccountReference' => 'Rentmycar',
+            'TransactionDesc' => 'Test'
+        );
+
+        $data_string = json_encode($curl_post_data);
+
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+
+        $curl_response = curl_exec($curl);
+        return $curl_response;
+
+}
+
+Public function MpesaTokenGenerate(){
+    $url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, $url);
+    $credentials = base64_encode('csyTPQ2MV39Dw3jpYnuRWhreAf1ospog:Enu5fwa0WUu5pHWB');
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$credentials)); //setting a custom header
+    curl_setopt($curl, CURLOPT_HEADER, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+    $curl_response = curl_exec($curl);
+
+}
 
 }
