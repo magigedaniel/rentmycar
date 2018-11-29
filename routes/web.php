@@ -117,6 +117,7 @@ Route::post('car/order', 'OrderController@postCarOrder');
 //Dashboard Routes
 Route::get('/memberDashboard', 'DashboardController@getUserDashboard');
 Route::get('/merchantDashboard', 'DashboardController@getMerchantDashboard');
+Route::get('/MPesa', 'DashboardController@MpesaTokenGenerate');
 
 Route::get('/memberDashboard/deposit/pay/{id}', 'DashboardController@getDepositPay');
 Route::post('/memberDashboard/deposit/pay', 'DashboardController@postDepositPay');
