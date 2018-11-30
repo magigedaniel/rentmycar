@@ -150,6 +150,39 @@ class DashboardController extends Controller
         );
     }
 
+    Public function post_mpesa_response_check()
+    {
+        $MerchantRequestID='6390-1421235-1';
+        $MpesaReceiptNumber='Updated';
+        DB::table('mpesa_transaction_status')
+            ->where('MerchantRequestID', $MerchantRequestID)
+            ->update([
+                'MpesaReceiptNumber'=>$MpesaReceiptNumber,
+                'status'=>'Paid'
+            ]);
+
+        //Receive the RAW post data.
+        $content = trim(file_get_contents("php://input"));
+
+        //Attempt to decode the incoming RAW post data from JSON.
+        $decoded = json_decode($content, true);
+
+        $TransactionType = $decoded['TransactionType'];
+        $TransID = $decoded['TransID'];
+        $TransTime = $decoded['TransTime'];
+        $TransAmount = $decoded['TransAmount'];
+        $BusinessShortCode = $decoded['BusinessShortCode'];
+        $BillRefNumber = $decoded['BillRefNumber'];
+        $InvoiceNumber = $decoded['InvoiceNumber'];
+        $OrgAccountBalance = $decoded['OrgAccountBalance'];
+        $ThirdPartyTransID = $decoded['ThirdPartyTransID'];
+        $MSISDN = $decoded['MSISDN'];
+        $FirstName = $decoded['FirstName'];
+        $MiddleName = $decoded['MiddleName'];
+        $LastName = $decoded['LastName'];
+
+    }
+
     //Method to generate access token
     Public function MpesaTokenGenerate()
     {
