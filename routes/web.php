@@ -118,7 +118,9 @@ Route::post('car/order', 'OrderController@postCarOrder');
 Route::get('/memberDashboard', 'DashboardController@getUserDashboard');
 Route::get('/merchantDashboard', 'DashboardController@getMerchantDashboard');
 Route::get('/MPesa', 'DashboardController@MpesaTokenGenerate');
-Route::get('/testMpesa', 'DashboardController@postDepositPay');
+
+//Used for testing anything
+Route::get('/testMpesa', 'DashboardController@test');
 
 Route::post('/MpesaApi/v1/response', 'DashboardController@post_mpesa_response_check');
 

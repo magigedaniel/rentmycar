@@ -72,7 +72,7 @@ class DashboardController extends Controller
         //http://localhost:8000/testMpesa for testing
         //Calling Mpesa Function to hit Apigee
         //$Mpesa_response = $this->MpesaPayment(1, '254710775577');
-       // dd($Mpesa_response);
+        // dd($Mpesa_response);
 
         if (Auth::check()) {
             $user = Auth::user();
@@ -143,22 +143,37 @@ class DashboardController extends Controller
         //save detail to the database mpesa status from apigeee
     {
         $user = Auth::user();
-        $user_id=$user->id;
-       // dd($Json);
+        $user_id = $user->id;
+        // dd($Json);
         DB::table('mpesa_transaction_status')->insert(
-           ['MerchantRequestID' => $Json->{'MerchantRequestID'}, 'CheckoutRequestID' => $Json->{'CheckoutRequestID'},'user_id'=>$user_id]
+            ['MerchantRequestID' => $Json->{'MerchantRequestID'}, 'CheckoutRequestID' => $Json->{'CheckoutRequestID'}, 'user_id' => $user_id]
         );
     }
 
     Public function post_mpesa_response_check()
     {
-        $MerchantRequestID='6390-1421235-1';
-        $MpesaReceiptNumber='Updated';
+        //Receive the RAW post data.
+        $content = trim(file_get_contents("php://input"));
+
+//Attempt to decode the incoming RAW post data from JSON.
+        $decoded = json_decode($content, true);
+        $response=$decoded;
+
+        $ResultCode=$response->{'Body'}->{'stkCallback'}->{'ResultCode'};
+
+        $MerchantRequestID=$response->{'Body'}->{'stkCallback'}->{'MerchantRequestID'};
+        $CheckoutRequestID=$response->{'Body'}->{'stkCallback'}->{'ResultCode'};
+        $amountPaid=$response->{'Body'}->{'stkCallback'}->{'CallbackMetadata'}->{'Item'}[0]->{'Value'};
+        $MpesaReceiptNumber=$response->{'Body'}->{'stkCallback'}->{'CallbackMetadata'}->{'Item'}[1]->{'Value'};
+        $TransactionDate=$response->{'Body'}->{'stkCallback'}->{'CallbackMetadata'}->{'Item'}[3]->{'Value'};
+        $MpesaPhoneNumber=$response->{'Body'}->{'stkCallback'}->{'CallbackMetadata'}->{'Item'}[4]->{'Value'};
+
+
         DB::table('mpesa_transaction_status')
             ->where('MerchantRequestID', $MerchantRequestID)
             ->update([
-                'MpesaReceiptNumber'=>$MpesaReceiptNumber,
-                'status'=>'Paid'
+                'MpesaReceiptNumber' => $MpesaReceiptNumber,
+                'status' => 'Paid'
             ]);
 
         //Receive the RAW post data.
@@ -201,6 +216,56 @@ class DashboardController extends Controller
         //Retrun access token to calling function
         return $access_token;
 
+    }
+
+    public function test()
+    {
+        $json = "
+        {
+  \"Body\": {
+    \"stkCallback\": {
+      \"MerchantRequestID\": \"13514-847304-1\",
+      \"CheckoutRequestID\": \"ws_CO_DMZ_175656984_29112018161509495\",
+      \"ResultCode\": 0,
+      \"ResultDesc\": \"The service request is processed successfully.\",
+      \"CallbackMetadata\": {
+        \"Item\": [
+          {
+            \"Name\": \"Amount\",
+            \"Value\": 1
+          },
+          {
+            \"Name\": \"MpesaReceiptNumber\",
+            \"Value\": \"MKT57AT9KZ\"
+          },
+          {
+            \"Name\": \"Balance\"
+          },
+          {
+            \"Name\": \"TransactionDate\",
+            \"Value\": 20181129161519
+          },
+          {
+            \"Name\": \"PhoneNumber\",
+            \"Value\": 254710775577
+          }
+        ]
+      }
+    }
+  }
+}";
+
+        $response=json_decode($json);
+
+        $ResultCode=$response->{'Body'}->{'stkCallback'}->{'ResultCode'};
+        $MerchantRequestID=$response->{'Body'}->{'stkCallback'}->{'MerchantRequestID'};
+        $CheckoutRequestID=$response->{'Body'}->{'stkCallback'}->{'ResultCode'};
+        $amountPaid=$response->{'Body'}->{'stkCallback'}->{'CallbackMetadata'}->{'Item'}[0]->{'Value'};
+        $MpesaReceiptNumber=$response->{'Body'}->{'stkCallback'}->{'CallbackMetadata'}->{'Item'}[1]->{'Value'};
+        $TransactionDate=$response->{'Body'}->{'stkCallback'}->{'CallbackMetadata'}->{'Item'}[3]->{'Value'};
+        $MpesaPhoneNumber=$response->{'Body'}->{'stkCallback'}->{'CallbackMetadata'}->{'Item'}[4]->{'Value'};
+
+        dd($response->{'Body'}->{'stkCallback'}->{'CallbackMetadata'}->{'Item'}[4]->{'Value'});
     }
 
 }
