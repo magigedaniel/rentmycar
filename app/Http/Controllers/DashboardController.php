@@ -157,7 +157,7 @@ class DashboardController extends Controller
 
 
         //Attempt to decode the incoming RAW post data from JSON.
-        $response = json_decode($content, true);
+        $response = json_decode($content);
         // $response=$decoded;
 
         $ResultCode = $response->{'Body'}->{'stkCallback'}->{'ResultCode'};
