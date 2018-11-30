@@ -86,7 +86,7 @@ class DashboardController extends Controller
             //Calling Mpesa Function to hit Apigee
             $Mpesa_response = $this->MpesaPayment(1, $phone);
             if ($Mpesa_response == 'Success') {
-                return response()->json(['success' => 'Check your phone & enter M-Pesa Pin to Complete Payments ']);
+                return response()->json(['success' => 'Success']);
             }
             return response()->json(['error' => $Mpesa_response]);
 

@@ -61,8 +61,10 @@
                                        value="{{$user_all_order->phone_used}}">
                             </div>
                         </div>
+                        <div id="loading" style="display: none;"><img src="/images/loading.gif" alt="" />Wait...</div>
                         <div class="alert alert-success" style="display:none"></div>
                         <div class="alert alert-danger" style="display:none"></div>
+
                         <button class="btn btn-info" id="ajaxSubmit">Pay Now</button>
                     </form>
 
@@ -80,6 +82,9 @@
                                         'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                                     }
                                 });
+                                jQuery('.alert-danger').hide();
+                                jQuery('#ajaxSubmit').hide();
+                                jQuery('#loading').show();
                                 jQuery.ajax({
                                     url: "{{ url('/memberDashboard/deposit/pay') }}",
                                     method: 'post',
@@ -90,12 +95,16 @@
                                     success: function (result) {
                                         if (result.success){
                                             jQuery('.alert-success').show();
-                                            jQuery('.alert-success').html(result.success)
+                                            jQuery('.alert-success').html('Check your phone & enter M-Pesa Pin to Complete Payments.' +
+                                                'Once you receive sms from M-pesa, Check status in the dashboard');
+                                            jQuery('#loading').hide();
                                         }
                                         else
                                         {
                                             jQuery('.alert-danger').show();
                                             jQuery('.alert-danger').html(result.error);
+                                            jQuery('#ajaxSubmit').show();
+                                            jQuery('#loading').hide();
                                         }
                                     }
                                 });
