@@ -113,7 +113,7 @@ class DashboardController extends Controller
             'PartyA' => $phone,
             'PartyB' => '174379',
             'PhoneNumber' => $phone,
-            'CallBackURL' => 'http://mobitechleo.com/mpesa_api.php',
+            'CallBackURL' => 'https://rentmycar.co.ke/MpesaApi/v1/response',
             'AccountReference' => 'RentMyCar',
             'TransactionDesc' => 'danTest'
         );
