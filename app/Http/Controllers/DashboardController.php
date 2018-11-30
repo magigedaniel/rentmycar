@@ -171,9 +171,9 @@ class DashboardController extends Controller
 
 
         DB::table('mpesa_transaction_status')
-            ->where('MerchantRequestID', $MerchantRequestID)
+            //->where('MerchantRequestID', $MerchantRequestID)
             ->update([
-                'MpesaReceiptNumber' => $MpesaReceiptNumber,
+               // 'MpesaReceiptNumber' => $MpesaReceiptNumber,
                 'status' => 'Paid'
             ]);
 
