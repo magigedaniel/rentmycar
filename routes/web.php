@@ -122,7 +122,8 @@ Route::get('/MPesa', 'DashboardController@MpesaTokenGenerate');
 //Used for testing anything
 Route::get('/testMpesa', 'DashboardController@test');
 
-Route::post('/MpesaApi/v1/response', 'DashboardController@post_mpesa_response_check');
+//Mpesa Callback URL
+Route::post('/validate/v1/response', 'DashboardController@post_mpesa_response_check');
 
 Route::get('/memberDashboard/deposit/pay/{id}', 'DashboardController@getDepositPay');
 Route::post('/memberDashboard/deposit/pay', 'DashboardController@postDepositPay');
