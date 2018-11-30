@@ -71,8 +71,8 @@ class DashboardController extends Controller
     {
         //http://localhost:8000/testMpesa for testing
         //Calling Mpesa Function to hit Apigee
-        //$Mpesa_response = $this->MpesaPayment('', '254710775577');
-        //dd($Mpesa_response);
+        //$Mpesa_response = $this->MpesaPayment(1, '254710775577');
+       // dd($Mpesa_response);
 
         if (Auth::check()) {
             $user = Auth::user();
@@ -85,8 +85,8 @@ class DashboardController extends Controller
 
             //Calling Mpesa Function to hit Apigee
             $Mpesa_response = $this->MpesaPayment(1, $phone);
-            if($Mpesa_response=='Success'){
-                return response()->json(['success' => 'Check your phone to enter M-Pesa Pin to Complete Payments ']);
+            if ($Mpesa_response == 'Success') {
+                return response()->json(['success' => 'Check your phone & enter M-Pesa Pin to Complete Payments ']);
             }
             return response()->json(['error' => $Mpesa_response]);
 
@@ -100,7 +100,7 @@ class DashboardController extends Controller
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization:Bearer '.$access_token)); //setting custom header
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json', 'Authorization:Bearer ' . $access_token)); //setting custom header
 
 
         $curl_post_data = array(
@@ -127,12 +127,27 @@ class DashboardController extends Controller
         $curl_response = curl_exec($curl);
         curl_close($curl);
         $curl_response = json_decode($curl_response);
-        if (empty($curl_response->{'errorMessage'})){
+        //return $curl_response;
+        if (empty($curl_response->{'errorMessage'})) {
+
+            $this->save_mpesa_apigee_response($curl_response);
             return 'Success';
         }
         return $curl_response->{'errorMessage'};
 
 
+    }
+
+
+    Public function save_mpesa_apigee_response($Json)
+        //save detail to the database mpesa status from apigeee
+    {
+        $user = Auth::user();
+        $user_id=$user->id;
+       // dd($Json);
+        DB::table('mpesa_transaction_status')->insert(
+           ['MerchantRequestID' => $Json->{'MerchantRequestID'}, 'CheckoutRequestID' => $Json->{'CheckoutRequestID'},'user_id'=>$user_id]
+        );
     }
 
     //Method to generate access token
