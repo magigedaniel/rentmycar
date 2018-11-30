@@ -52,15 +52,17 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="Amount">Amount (KES)</label>
-                                <input type="email" class="form-control" id="Amount" readonly value="{{$user_all_order->deposit_amount}}">
+                                <input type="email" class="form-control" id="Amount" readonly
+                                       value="{{$user_all_order->deposit_amount}}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="MpesaPhone">M-Pesa Phone No</label>
-                                <input type="text" class="form-control" id="MpesaPhone" name="MpesaPhone" required value="{{$user_all_order->phone_used}}">
+                                <input type="text" class="form-control" id="MpesaPhone" name="MpesaPhone" required
+                                       value="{{$user_all_order->phone_used}}">
                             </div>
                         </div>
                         <div class="alert alert-success" style="display:none"></div>
-
+                        <div class="alert alert-danger" style="display:none"></div>
                         <button class="btn btn-info" id="ajaxSubmit">Pay Now</button>
                     </form>
 
@@ -86,14 +88,21 @@
                                         Phone: jQuery('#MpesaPhone').val()
                                     },
                                     success: function (result) {
-                                        jQuery('.alert').show();
-                                        jQuery('.alert').html(result.success);
+                                        if (result.success){
+                                            jQuery('.alert-success').show();
+                                            jQuery('.alert-success').html(result.success)
+                                        }
+                                        else
+                                        {
+                                            jQuery('.alert-danger').show();
+                                            jQuery('.alert-danger').html(result.error);
+                                        }
                                     }
                                 });
                             });
                         });
                     </script>
-                <br/>
+                    <br/>
                 </div>
             </div>
             <!--body wrapper start-->
