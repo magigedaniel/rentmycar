@@ -150,10 +150,14 @@ class DashboardController extends Controller
         );
     }
 
-    Public function post_mpesa_response_check()
+    Public function post_mpesa_response_check(Request $request)
     {
         //Receive the RAW post data.
         $content = trim(file_get_contents("php://input"));
+
+        $fp = fopen('Mpesa_res.json', 'w');
+        fwrite($fp, $content);
+        fclose($fp);
 
 //Attempt to decode the incoming RAW post data from JSON.
         $decoded = json_decode($content, true);
