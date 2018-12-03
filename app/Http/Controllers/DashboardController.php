@@ -113,7 +113,7 @@ class DashboardController extends Controller
             'PartyA' => $phone,
             'PartyB' => '174379',
             'PhoneNumber' => $phone,
-            'CallBackURL' => 'https://rentmycar.co.ke/validate/v1/response',
+            'CallBackURL' => 'http://validate.rentmycar.co.ke/online_api.php',
             'AccountReference' => 'RentMyCar',
             'TransactionDesc' => 'danTest'
         );
