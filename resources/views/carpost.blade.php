@@ -230,17 +230,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                 //Change function of enddate
                 jQuery("#endDate").change(function () {
-
+                    jQuery('.alert-danger').hide();
                     var startDate = jQuery('#startDate').val();
                     var endDate = jQuery('#endDate').val();
                     var price_per_day=jQuery('#price_per_day').val();
-                    var today = new Date();
-                    y = today.getFullYear();
-                    m = today.getMonth() + 1;
-                    d = today.getDate();
-                    var today_date=y + "-" + m + "-" + d;
+
 //alert(price_per_day);
-                    if(startDate<today_date){
+                    var ToDate = new Date();
+                    if(new Date(firstDate).getTime() <= ToDate.getTime()){
                         jQuery('.alert-danger').show();
                         jQuery('.alert-danger').html('Start date cannot be less than today date');
                         return
@@ -330,7 +327,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!--footer section end-->
         <!-- /w3l-agile -->
         <!-- main content end-->
+    </div>
 </section>
+
 
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/scripts.js"></script>
