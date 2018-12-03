@@ -237,7 +237,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 //alert(price_per_day);
                     var ToDate = new Date();
-                    if(new Date(firstDate).getTime() <= ToDate.getTime()){
+                    if(new Date(startDate).getTime() <= ToDate.getTime()){
                         jQuery('.alert-danger').show();
                         jQuery('.alert-danger').html('Start date cannot be less than today date');
                         return
