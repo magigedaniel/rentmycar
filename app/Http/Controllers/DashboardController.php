@@ -49,6 +49,23 @@ class DashboardController extends Controller
 
     }
 
+public function getOneOrderDetails(Request $request)
+{
+    if (Auth::check()) {
+
+        $user = Auth::user();
+        //dd($user->usertype );
+        $user_all_order = DB::table('car_order')
+            ->where([['id', '=', $request->id]])
+            ->first();
+
+        if ($user->usertype == "merchant") {
+            return view('merchant.actionOrder', compact('user_all_order', 'user'));
+        }
+        return view('admin.admin404', compact('user'));
+    }
+}
+
 
     public function getDepositPay(Request $request)
     {

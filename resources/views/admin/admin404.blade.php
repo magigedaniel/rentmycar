@@ -80,8 +80,8 @@ desired effect
             <h1 style="text-align: center; color:orangered;">Permission Denied !</h1>
             <h2 style="text-align: center;">You Dont Have Permission To Access Dashboard. </h2>
             <p style="text-align: center;">Incase You think you its an error, contact system admin Or<br>
-                Email <a href="mailto:ewanyonyi@daystar.ac.ke">ewanyonyi@daystar.ac.ke</a> or <a
-                        href="mailto:ewanyonyi@deasff.com">ewanyonyi@deasff.com</a></p>
+                Email <a href="mailto:admin@rentmyca.co.ke">admin@rentmyca.co.ke</a> or <a
+                        href="mailto:admin@rentmyca.co.ke">admin@rentmyca.co.ke</a></p>
 
 
         </section>

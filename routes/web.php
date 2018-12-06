@@ -128,7 +128,8 @@ Route::post('/validate/v1/response', 'DashboardController@post_mpesa_response_ch
 Route::get('/memberDashboard/deposit/pay/{id}', 'DashboardController@getDepositPay');
 Route::post('/memberDashboard/deposit/pay', 'DashboardController@postDepositPay');
 
-
+//Merchant get details
+Route::get('/merchantDashboard/action/{id}', 'DashboardController@getOneOrderDetails');
 //Vote
 Route::get('/vote', 'HomeController@vote');
 Route::get('/NewPost', 'HomeController@getNewPost');

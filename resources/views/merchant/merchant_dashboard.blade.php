@@ -73,7 +73,9 @@
                                 <td>{!! $order_details->deposit_amount!!}</td>
                                 <td>{!! $order_details->total_amount!!}</td>
                                 <td>{!! $order_details->merchant_approval_status!!}</td>
-                                <td>Pay deposit</td>
+                                <td>
+                                    <a href="/merchantDashboard/action/{{$order_details->id}}"> <button class="btn btn-info btn-sm"  style="margin-left: 2px"><span class="fa fa-trash">Action/Details</span></button></a>
+                                </td>
                             </tr>
                         @endforeach
 
