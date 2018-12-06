@@ -227,7 +227,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </script>
         <script >
             jQuery(document).ready(function () {
-                
+
                 //Change function of enddate
                 jQuery("#endDate").change(function () {
                     jQuery('.alert-danger').hide();
