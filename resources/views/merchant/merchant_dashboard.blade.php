@@ -57,9 +57,7 @@
                             <th>Date From</th>
                             <th>Date To</th>
                             <th>No of Days</th>
-                            <th>Deposit Amount</th>
                             <th>Total Amt</th>
-                            <th>Merchant Status</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -70,11 +68,9 @@
                                 <td>{!! $order_details->booking_date_from!!}</td>
                                 <td>{!! $order_details->booking_date_to!!}</td>
                                 <td>{!! $order_details->number_of_days_ordered!!}</td>
-                                <td>{!! $order_details->deposit_amount!!}</td>
                                 <td>{!! $order_details->total_amount!!}</td>
-                                <td>{!! $order_details->merchant_approval_status!!}</td>
                                 <td>
-                                    <a href="/merchantDashboard/action/{{$order_details->id}}"> <button class="btn btn-info btn-sm"  style="margin-left: 2px"><span class="fa fa-trash">Action/Details</span></button></a>
+                                    <a href="/merchantDashboard/action/{{$order_details->id}}"> <button class="btn btn-info btn-sm"  style="margin-left: 2px"><span class="fa fa-trash">Act / Details</span></button></a>
                                 </td>
                             </tr>
                         @endforeach

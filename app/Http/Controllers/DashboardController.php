@@ -59,8 +59,16 @@ public function getOneOrderDetails(Request $request)
             ->where([['id', '=', $request->id]])
             ->first();
 
+       // dd($user_all_order);
+        $customer=DB::table('users')
+            ->select('fname','lname')
+            ->where([['id', '=', $user_all_order->user_id]])
+        ->first();
+        //dd($customer);
+
+
         if ($user->usertype == "merchant") {
-            return view('merchant.actionOrder', compact('user_all_order', 'user'));
+            return view('merchant.actionOrder', compact('user_all_order','customer', 'user'));
         }
         return view('admin.admin404', compact('user'));
     }

@@ -46,22 +46,47 @@
                     <form id="myForm">
 
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="Amount">Amount (KES)</label>
+                            <div class="form-group col-md-4">
+                                <label for="Amount">Customer Name</label>
+                                <input type="email" class="form-control" id="Amount" readonly
+                                       value="{{$customer->fname.' '.$customer->lname}}">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="MpesaPhone">Mobile No</label>
+                                <input type="text" class="form-control" id="MpesaPhone" name="MpesaPhone" required
+                                       readonly value="{{$user_all_order->phone_used}}">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Amount">Total Amount (KES)</label>
                                 <input type="email" class="form-control" id="Amount" readonly
                                        value="{{$user_all_order->deposit_amount}}">
                             </div>
+                        </div>
+                        <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="MpesaPhone">M-Pesa Phone No</label>
+                                <label for="Amount">Date from :</label>
+                                <input type="email" class="form-control" id="Amount" readonly
+                                       value="{{$user_all_order->booking_date_from}}">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="MpesaPhone">Date To:</label>
                                 <input type="text" class="form-control" id="MpesaPhone" name="MpesaPhone" required
-                                       value="{{$user_all_order->phone_used}}">
+                                       readonly  value="{{$user_all_order->booking_date_to}}">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="MpesaPhone">Number  Of Days</label>
+                                <input type="text" class="form-control" id="MpesaPhone" name="MpesaPhone" readonly required
+                                       value="{{$user_all_order->number_of_days_ordered}}">
                             </div>
                         </div>
                         <div id="loading" style="display: none;"><img src="/images/loading.gif" alt="" />Wait...</div>
                         <div class="alert alert-success" style="display:none"></div>
                         <div class="alert alert-danger" style="display:none"></div>
 
-                        <button class="btn btn-info" id="ajaxSubmit">Pay Now</button>
+                        <button class="btn btn-info" id="ajaxAccept">Accept Offer</button>
+                        <button class="btn btn-danger" id="ajaxReject">Reject Offer</button>
                     </form>
 
 
