@@ -35,7 +35,7 @@
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <!-- Brand and toggle get grouped for better mobile display -->
-                    @include('customer_dashboard_header')
+                    @include('merchant.merchant_dashboard_header')
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     </div><!-- /.container-fluid -->

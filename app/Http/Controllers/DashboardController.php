@@ -49,30 +49,40 @@ class DashboardController extends Controller
 
     }
 
-public function getOneOrderDetails(Request $request)
-{
-    if (Auth::check()) {
+    //Merchant get on order action
+    public function getOneOrderDetails(Request $request)
+    {
+        if (Auth::check()) {
 
-        $user = Auth::user();
-        //dd($user->usertype );
-        $user_all_order = DB::table('car_order')
-            ->where([['id', '=', $request->id]])
-            ->first();
+            $user = Auth::user();
+            //dd($user->usertype );
+            $user_all_order = DB::table('car_order')
+                ->where([['id', '=', $request->id]])
+                ->first();
 
-       // dd($user_all_order);
-        $customer=DB::table('users')
-            ->select('fname','lname')
-            ->where([['id', '=', $user_all_order->user_id]])
-        ->first();
-        //dd($customer);
+            // dd($user_all_order);
+            $customer = DB::table('users')
+                ->select('fname', 'lname')
+                ->where([['id', '=', $user_all_order->user_id]])
+                ->first();
+            //dd($customer);
 
 
-        if ($user->usertype == "merchant") {
-            return view('merchant.actionOrder', compact('user_all_order','customer', 'user'));
+            if ($user->usertype == "merchant") {
+                return view('merchant.actionOrder', compact('user_all_order', 'customer', 'user'));
+            }
+            return view('admin.admin404', compact('user'));
         }
-        return view('admin.admin404', compact('user'));
     }
-}
+
+
+//Merchant post accept/Reject order
+    public function postMerchantOrderStatus(Request $request)
+    {
+        return response()->json(['success' => 'Success']);
+        $status=$request->input('status');
+
+    }
 
 
     public function getDepositPay(Request $request)
@@ -198,7 +208,7 @@ public function getOneOrderDetails(Request $request)
         DB::table('mpesa_transaction_status')
             //->where('MerchantRequestID', $MerchantRequestID)
             ->update([
-               // 'MpesaReceiptNumber' => $MpesaReceiptNumber,
+                // 'MpesaReceiptNumber' => $MpesaReceiptNumber,
                 'status' => 'Paid'
             ]);
 

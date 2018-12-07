@@ -37,7 +37,7 @@
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <!-- Brand and toggle get grouped for better mobile display -->
-                       @include('customer_dashboard_header')
+                       @include('merchant.merchant_dashboard_header')
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
                     </div><!-- /.container-fluid -->
@@ -59,7 +59,7 @@
                             <div class="form-group col-md-4">
                                 <label for="Amount">Total Amount (KES)</label>
                                 <input type="email" class="form-control" id="Amount" readonly
-                                       value="{{$user_all_order->deposit_amount}}">
+                                       value="{{$user_all_order->total_amount}}">
                             </div>
                         </div>
                         <div class="form-row">
@@ -96,7 +96,7 @@
                     </script>
                     <script>
                         jQuery(document).ready(function () {
-                            jQuery('#ajaxSubmit').click(function (e) {
+                            jQuery('#ajaxAccept').click(function (e) {
                                 e.preventDefault();
                                 $.ajaxSetup({
                                     headers: {
@@ -104,14 +104,14 @@
                                     }
                                 });
                                 jQuery('.alert-danger').hide();
-                                jQuery('#ajaxSubmit').hide();
+                                jQuery('#ajaxAccept').hide();
+                                jQuery('#ajaxReject').hide();
                                 jQuery('#loading').show();
                                 jQuery.ajax({
-                                    url: "{{ url('/memberDashboard/deposit/pay') }}",
+                                    url: "{{ url('/merchantDashboard/action/{id}') }}",
                                     method: 'post',
                                     data: {
-                                        Amount: jQuery('#Amount').val(),
-                                        Phone: jQuery('#MpesaPhone').val()
+                                        status: 'accept'
                                     },
                                     success: function (result) {
                                         if (result.success){
@@ -124,7 +124,8 @@
                                         {
                                             jQuery('.alert-danger').show();
                                             jQuery('.alert-danger').html(result.error);
-                                            jQuery('#ajaxSubmit').show();
+                                            jQuery('#ajaxAccept').show();
+                                            jQuery('#ajaxReject').show();
                                             jQuery('#loading').hide();
                                         }
                                     }

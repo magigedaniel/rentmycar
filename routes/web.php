@@ -129,6 +129,9 @@ Route::get('/memberDashboard/deposit/pay/{id}', 'DashboardController@getDepositP
 Route::post('/memberDashboard/deposit/pay', 'DashboardController@postDepositPay');
 
 //Merchant get details
+
+
+Route::post('/merchantDashboard/action/{id}', 'DashboardController@postMerchantOrderStatus');
 Route::get('/merchantDashboard/action/{id}', 'DashboardController@getOneOrderDetails');
 //Vote
 Route::get('/vote', 'HomeController@vote');
