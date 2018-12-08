@@ -13,5 +13,5 @@
         Designed by  <a href="//magigedaniel.com" target="_blank">Magige Daniel</a>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; <?php echo date('Y');?> <a href="#">RentMyCar.co.ke</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; <?php echo date('Y');?> <a href="#">Rentmycar.co.ke</a>.</strong> All rights reserved.
 </footer>

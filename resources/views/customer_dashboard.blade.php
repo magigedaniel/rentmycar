@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>RentMyCar.co.ke | My Dashboard</title>
+    <title>Rentmycar.co.ke | My Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="RentMyCar.co.ke"/>
+    <meta name="keywords" content="Rentmycar.co.ke"/>
     <meta name="_token" content="{{csrf_token()}}"/>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>

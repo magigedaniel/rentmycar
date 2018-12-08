@@ -13,5 +13,5 @@
         Powered by  <a href="#">BC</a>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">RentMyCar.co.ke</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2016 <a href="#">Rentmycar.co.ke</a>.</strong> All rights reserved.
 </footer>

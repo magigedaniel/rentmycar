@@ -7,10 +7,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>RentMyCar.co.ke | Support</title>
+    <title>Rentmycar.co.ke | Support</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="RentMyCar.co.ke"/>
+    <meta name="keywords" content="Rentmycar.co.ke"/>
     <script type="application/x-javascript"> addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
@@ -98,7 +98,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </p>
                     <br><br>
                     <p><strong>DONATIONS</strong></p>
-                    <p><strong>RentMyCar.co.ke </strong>is a non-profit organization that relies on contributions from well-wishers keen to support the next generation of filmmakers.</p>
+                    <p><strong>Rentmycar.co.ke </strong>is a non-profit organization that relies on contributions from well-wishers keen to support the next generation of filmmakers.</p>
                     <p>&nbsp;</p>
                     <p>Contact us if you are interested in partnering with East Africa Student Film Festival.</p>
                     <p>&nbsp;</p>
