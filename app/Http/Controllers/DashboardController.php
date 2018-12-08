@@ -79,8 +79,15 @@ class DashboardController extends Controller
 //Merchant post accept/Reject order
     public function postMerchantOrderStatus(Request $request)
     {
-        return response()->json(['success' => 'Success']);
+
         $status=$request->input('status');
+        if($status=='accept'){
+            return response()->json(['success' => 'Success '.$status]);
+        }
+        else{
+
+            return response()->json(['error' => 'error occurred'.$status]);
+        }
 
     }
 

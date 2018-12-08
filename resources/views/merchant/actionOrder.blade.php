@@ -37,9 +37,9 @@
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <!-- Brand and toggle get grouped for better mobile display -->
-                       @include('merchant.merchant_dashboard_header')
+                    @include('merchant.merchant_dashboard_header')
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
                     </div><!-- /.container-fluid -->
                 </nav>
                 <div class="inner-content">
@@ -71,17 +71,18 @@
                             <div class="form-group col-md-6">
                                 <label for="MpesaPhone">Date To:</label>
                                 <input type="text" class="form-control" id="MpesaPhone" name="MpesaPhone" required
-                                       readonly  value="{{$user_all_order->booking_date_to}}">
+                                       readonly value="{{$user_all_order->booking_date_to}}">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <label for="MpesaPhone">Number  Of Days</label>
-                                <input type="text" class="form-control" id="MpesaPhone" name="MpesaPhone" readonly required
+                                <label for="MpesaPhone">Number Of Days</label>
+                                <input type="text" class="form-control" id="MpesaPhone" name="MpesaPhone" readonly
+                                       required
                                        value="{{$user_all_order->number_of_days_ordered}}">
                             </div>
                         </div>
-                        <div id="loading" style="display: none;"><img src="/images/loading.gif" alt="" />Wait...</div>
+                        <div id="loading" style="display: none;"><img src="/images/loading.gif" alt=""/>Wait...</div>
                         <div class="alert alert-success" style="display:none"></div>
                         <div class="alert alert-danger" style="display:none"></div>
 
@@ -96,6 +97,7 @@
                     </script>
                     <script>
                         jQuery(document).ready(function () {
+                            //Accept merchant
                             jQuery('#ajaxAccept').click(function (e) {
                                 e.preventDefault();
                                 $.ajaxSetup({
@@ -114,14 +116,47 @@
                                         status: 'accept'
                                     },
                                     success: function (result) {
-                                        if (result.success){
+                                        if (result.success) {
                                             jQuery('.alert-success').show();
-                                            jQuery('.alert-success').html('Check your phone & enter M-Pesa Pin to Complete Payments.' +
-                                                'Once you receive sms from M-pesa, Check status in the dashboard');
+                                            jQuery('.alert-success').html(result.success);
                                             jQuery('#loading').hide();
                                         }
-                                        else
-                                        {
+                                        else {
+                                            jQuery('.alert-danger').show();
+                                            jQuery('.alert-danger').html(result.error);
+                                            jQuery('#ajaxAccept').show();
+                                            jQuery('#ajaxReject').show();
+                                            jQuery('#loading').hide();
+                                        }
+                                    }
+                                });
+                            });
+
+                            //Reject data
+                            jQuery('#ajaxReject').click(function (e) {
+                                e.preventDefault();
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                                    }
+                                });
+                                jQuery('.alert-danger').hide();
+                                jQuery('#ajaxAccept').hide();
+                                jQuery('#ajaxReject').hide();
+                                jQuery('#loading').show();
+                                jQuery.ajax({
+                                    url: "{{ url('/merchantDashboard/action/{id}') }}",
+                                    method: 'post',
+                                    data: {
+                                        status: 'reject'
+                                    },
+                                    success: function (result) {
+                                        if (result.success) {
+                                            jQuery('.alert-success').show();
+                                            jQuery('.alert-success').html(result.success);
+                                            jQuery('#loading').hide();
+                                        }
+                                        else {
                                             jQuery('.alert-danger').show();
                                             jQuery('.alert-danger').html(result.error);
                                             jQuery('#ajaxAccept').show();
