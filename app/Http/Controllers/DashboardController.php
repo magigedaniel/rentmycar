@@ -81,12 +81,21 @@ class DashboardController extends Controller
     {
 
         $status=$request->input('status');
+        $id=$request->input('id');
+
         if($status=='accept'){
-            return response()->json(['success' => 'Success '.$status]);
+            DB::table('car_order')
+                ->where('id', $id)
+                ->update(['merchant_approval_status' => 'Approved']);
+
+            return response()->json(['success' => 'Success Order Accepted. Wait Deposit Payment.']);
         }
         else{
+            DB::table('car_order')
+                ->where('id', $id)
+                ->update(['merchant_approval_status' => 'Rejected']);
 
-            return response()->json(['error' => 'error occurred'.$status]);
+            return response()->json(['error' => 'You have Rejected this Order.']);
         }
 
     }

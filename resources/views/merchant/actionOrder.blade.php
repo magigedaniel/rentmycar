@@ -81,13 +81,19 @@
                                        required
                                        value="{{$user_all_order->number_of_days_ordered}}">
                             </div>
+                            <input type="text" hidden value="{{$user_all_order->id}}" id="id" name="id">
                         </div>
+
                         <div id="loading" style="display: none;"><img src="/images/loading.gif" alt=""/>Wait...</div>
                         <div class="alert alert-success" style="display:none"></div>
                         <div class="alert alert-danger" style="display:none"></div>
+                        @if($user_all_order->merchant_approval_status=='Pending')
 
-                        <button class="btn btn-info" id="ajaxAccept">Accept Offer</button>
-                        <button class="btn btn-danger" id="ajaxReject">Reject Offer</button>
+                            <button class="btn btn-success" id="ajaxAccept">Accept Offer</button>
+                            <button class="btn btn-danger" id="ajaxReject" style="float:right;">Reject Offer
+                            </button>
+
+                        @endif
                     </form>
 
 
@@ -113,7 +119,8 @@
                                     url: "{{ url('/merchantDashboard/action/{id}') }}",
                                     method: 'post',
                                     data: {
-                                        status: 'accept'
+                                        status: 'accept',
+                                        id: jQuery('#id').val()
                                     },
                                     success: function (result) {
                                         if (result.success) {
@@ -148,7 +155,8 @@
                                     url: "{{ url('/merchantDashboard/action/{id}') }}",
                                     method: 'post',
                                     data: {
-                                        status: 'reject'
+                                        status: 'reject',
+                                        id: jQuery('#id').val()
                                     },
                                     success: function (result) {
                                         if (result.success) {
@@ -159,8 +167,8 @@
                                         else {
                                             jQuery('.alert-danger').show();
                                             jQuery('.alert-danger').html(result.error);
-                                            jQuery('#ajaxAccept').show();
-                                            jQuery('#ajaxReject').show();
+                                            jQuery('#ajaxAccept').hide();
+                                            jQuery('#ajaxReject').hide();
                                             jQuery('#loading').hide();
                                         }
                                     }
