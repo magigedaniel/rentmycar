@@ -51,10 +51,14 @@ class HomeController extends Controller {
     public function getNewPost() {
         if (Auth::check()) {
             $user = Auth::user();
+            if($user->usertype=='merchant')
+            {
             $car_categories = DB::table('car_category')->get();
             $car_cc = DB::table('car_cc')->get();
             $error = "";
             return view('postnew_car', compact('user', 'car_categories','car_cc', 'error'));
+            }
+
         }
         return view('auth.login');
     }

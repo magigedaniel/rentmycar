@@ -17,7 +17,7 @@ use function view;
 
 class CarController extends Controller {
 
-    public function createVideo(Request $request) {
+    public function createCar(Request $request) {
         $userId = Auth::user()->id;
         if ($request->hasFile('vimage')) {
             $error = null;

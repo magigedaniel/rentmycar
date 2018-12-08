@@ -165,7 +165,7 @@ Route::get('/page/{page_id}', 'HomeController@page');
 Route::get('/admin', 'PostDataController@admin');
 
 //Video Route
-Route::post('/postvideo', 'CarController@createVideo');
+Route::post('/postvideo', 'CarController@createCar');
 Route::get('admin/video/posted', 'CarController@getAllVideos');
 Route::get('admin/video/posted/current', 'CarController@getCurrentVideos');
 Route::get('admin/video/posted/open/excel', 'CarController@printAllPostedVideos');
