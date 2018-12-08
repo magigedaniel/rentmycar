@@ -49,6 +49,23 @@ class DashboardController extends Controller
 
     }
 
+    public function getMerchantDashboardOrderStatus(Request $request)
+    {
+        $status=$request->status;
+        //dd($status);
+        if (Auth::check()) {
+            $user = Auth::user();
+            $user_all_order = DB::table('car_order')
+                ->where([['merchant_id', '=', $user->id],['merchant_approval_status','=',$status]])
+                ->get();
+            // dd($user_all_order);
+            return view('merchant.merchant_dashboard_status', compact('user', 'user_all_order'));
+        }
+
+        return view('auth.login');
+
+    }
+
     //Merchant get on order action
     public function getOneOrderDetails(Request $request)
     {

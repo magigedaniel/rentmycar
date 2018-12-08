@@ -116,7 +116,6 @@ Route::post('car/order', 'OrderController@postCarOrder');
 
 //Dashboard Routes
 Route::get('/memberDashboard', 'DashboardController@getUserDashboard');
-Route::get('/merchantDashboard', 'DashboardController@getMerchantDashboard');
 Route::get('/MPesa', 'DashboardController@MpesaTokenGenerate');
 
 //Used for testing anything
@@ -128,8 +127,9 @@ Route::post('/validate/v1/response', 'DashboardController@post_mpesa_response_ch
 Route::get('/memberDashboard/deposit/pay/{id}', 'DashboardController@getDepositPay');
 Route::post('/memberDashboard/deposit/pay', 'DashboardController@postDepositPay');
 
-//Merchant get details
-
+//Merchant route details
+Route::get('/merchantDashboard', 'DashboardController@getMerchantDashboard');
+Route::get('/merchantDashboard/{status}', 'DashboardController@getMerchantDashboardOrderStatus');
 
 Route::post('/merchantDashboard/action/{id}', 'DashboardController@postMerchantOrderStatus');
 Route::get('/merchantDashboard/action/{id}', 'DashboardController@getOneOrderDetails');

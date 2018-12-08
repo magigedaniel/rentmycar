@@ -6,17 +6,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="RentMyCar.co.ke"/>
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <link href="../css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <!-- Custom CSS -->
-    <link href="css/style.css" rel='stylesheet' type='text/css'/>
+    <link href="../css/style.css" rel='stylesheet' type='text/css'/>
     <!-- Graph CSS -->
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
     <!-- lined-icons -->
-    <link rel="stylesheet" href="css/icon-font.css" type='text/css'/>
+    <link rel="stylesheet" href="../css/icon-font.css" type='text/css'/>
     <!-- //lined-icons -->
     <!-- Meters graphs -->
-    <script src="js/jquery-2.1.4.js"></script>
+    <script src="../js/jquery-2.1.4.js"></script>
 
 
 </head>
@@ -57,7 +57,6 @@
                             <th>Date From</th>
                             <th>Date To</th>
                             <th>No of Days</th>
-                            <th>Total Amt</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -68,7 +67,6 @@
                                 <td>{!! $order_details->booking_date_from!!}</td>
                                 <td>{!! $order_details->booking_date_to!!}</td>
                                 <td>{!! $order_details->number_of_days_ordered!!}</td>
-                                <td>{!! $order_details->total_amount!!}</td>
                                 <td>
                                     <a href="/merchantDashboard/action/{{$order_details->id}}"> <button class="btn btn-info btn-sm"  style="margin-left: 2px"><span class="fa fa-trash">Act / Details</span></button></a>
                                 </td>
