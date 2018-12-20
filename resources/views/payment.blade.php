@@ -72,7 +72,7 @@
                         <div id="loading" style="display: none;"><img src="/images/loading.gif" alt=""/>Wait...</div>
                         <div class="alert alert-success" style="display:none"></div>
                         <div class="alert alert-danger" style="display:none"></div>
-                        @if($user_all_order->merchant_approval_status=='Approved')
+                        @if($user_all_order->merchant_approval_status=='Approved' && $user_all_order->balance_payment_status=='Pending')
                             <button class="btn btn-info" id="ajaxSubmit">Pay Now</button>
                         @endif
                     </form>
