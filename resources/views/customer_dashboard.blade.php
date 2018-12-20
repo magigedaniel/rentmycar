@@ -61,9 +61,6 @@
                             <th>Car Reg No</th>
                             <th>Date From</th>
                             <th>Date To</th>
-                            <th>No of Days</th>
-                            <th>Deposit Amount</th>
-                            <th>Total Amt</th>
                             <th>Merchant Status</th>
                             <th>Action</th>
                         </tr>
@@ -75,8 +72,6 @@
                                 <td>{!! $order_details->booking_date_from!!}</td>
                                 <td>{!! $order_details->booking_date_to!!}</td>
                                 <td>{!! $order_details->number_of_days_ordered!!}</td>
-                                <td>{!! $order_details->deposit_amount!!}</td>
-                                <td>{!! $order_details->total_amount!!}</td>
                                 <td>{!! $order_details->merchant_approval_status!!}</td>
                                 <td>
                                     @if($order_details->merchant_approval_status=='Approved')
