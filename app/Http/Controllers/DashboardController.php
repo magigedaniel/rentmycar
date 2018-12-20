@@ -33,6 +33,24 @@ class DashboardController extends Controller
         return view('auth.login');
 
     }
+    //Get Member dashboard based on status
+    public function getMemberDashboardOrderStatus(Request $request)
+    {
+        $status=$request->status;
+        //dd($status);
+        if (Auth::check()) {
+            $user = Auth::user();
+            $user_all_order = DB::table('car_order')
+                ->where([['user_id', '=', $user->id],['merchant_approval_status','=',$status]])
+                ->get();
+            // dd($user_all_order);
+            return view('member_dashboard_status', compact('user', 'user_all_order'));
+        }
+
+        return view('auth.login');
+
+    }
+
 
     public function getMerchantDashboard(Request $request)
     {
@@ -117,7 +135,7 @@ class DashboardController extends Controller
 
     }
 
-
+//Get details for customer/Members
     public function getDepositPay(Request $request)
     {
         if (Auth::check()) {
@@ -135,7 +153,8 @@ class DashboardController extends Controller
         }
     }
 
-    public function postDepositPay(Request $request)
+    //Post cash for payment M-pesa
+    public function postPaymentAmount(Request $request)
     {
         //http://localhost:8000/testMpesa for testing
         //Calling Mpesa Function to hit Apigee

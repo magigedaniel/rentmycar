@@ -37,9 +37,9 @@
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <!-- Brand and toggle get grouped for better mobile display -->
-                       @include('customer_dashboard_header')
+                    @include('customer_dashboard_header')
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
                     </div><!-- /.container-fluid -->
                 </nav>
                 <div class="inner-content">
@@ -57,11 +57,12 @@
                                        value="{{$user_all_order->phone_used}}">
                             </div>
                         </div>
-                        <div id="loading" style="display: none;"><img src="/images/loading.gif" alt="" />Wait...</div>
+                        <div id="loading" style="display: none;"><img src="/images/loading.gif" alt=""/>Wait...</div>
                         <div class="alert alert-success" style="display:none"></div>
                         <div class="alert alert-danger" style="display:none"></div>
-
-                        <button class="btn btn-info" id="ajaxSubmit">Pay Now</button>
+                        @if($user_all_order->merchant_approval_status=='Approved')
+                            <button class="btn btn-info" id="ajaxSubmit">Pay Now</button>
+                        @endif
                     </form>
 
 
@@ -89,14 +90,13 @@
                                         Phone: jQuery('#MpesaPhone').val()
                                     },
                                     success: function (result) {
-                                        if (result.success){
+                                        if (result.success) {
                                             jQuery('.alert-success').show();
                                             jQuery('.alert-success').html('Check your phone & enter M-Pesa Pin to Complete Payments.' +
                                                 'Once you receive sms from M-pesa, Check status in the dashboard');
                                             jQuery('#loading').hide();
                                         }
-                                        else
-                                        {
+                                        else {
                                             jQuery('.alert-danger').show();
                                             jQuery('.alert-danger').html(result.error);
                                             jQuery('#ajaxSubmit').show();

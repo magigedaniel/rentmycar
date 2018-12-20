@@ -39,7 +39,7 @@
                         <!-- Brand and toggle get grouped for better mobile display -->
                     @include('customer_dashboard_header')
 
-                        <!-- Collect the nav links, forms, and other content for toggling -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
                     </div><!-- /.container-fluid -->
                 </nav>
                 <div class="inner-content">
@@ -79,11 +79,21 @@
                                 <td>{!! $order_details->total_amount!!}</td>
                                 <td>{!! $order_details->merchant_approval_status!!}</td>
                                 <td>
-                                    <a href="/memberDashboard/deposit/pay/{{$order_details->id}}"> <button class="btn btn-info btn-sm"  style="margin-left: 2px"><span class="fa fa-trash"> Pay Deposit</span></button></a>
+                                    @if($order_details->merchant_approval_status=='Approved')
+                                        <a href="/memberDashboard/deposit/pay/{{$order_details->id}}">
+                                            <button class="btn btn-info btn-sm" style="margin-left: 2px"><span
+                                                        class="fa fa-trash"> Pay / Details</span></button>
+                                        </a>
+                                    @else
+                                        <a href="/memberDashboard/deposit/pay/{{$order_details->id}}">
+                                            <button class="btn btn-info btn-sm" style="margin-left: 2px"><span
+                                                        class="fa fa-trash">Details</span></button>
+                                        </a>
+
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
-
                         </tbody>
                     </table>
 
