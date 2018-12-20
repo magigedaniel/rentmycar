@@ -51,29 +51,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="inner-content">
                         <h2 style="text-align: center; font-weight: 900;">{{$category_name}} </h2>
                         <div class="row">
-                            @foreach($video_in_category as $video_archive1)
-                            <div class="col-md-4">
-                                            <!--<div class="caption">-->
-                                                <h5 class="text-black text-sm" style="font-weight: 800; text-align: center">{{$video_archive1->title}}</h5>
-                                            <!--</div>-->
-                                            <div class="thumbnail">
-                                                <a href="{!!'/rentCar?video='. $video_archive1->id.'&id='!!}" target="_blank">
-                                                    <img id="image{{$video_archive1->id}}" src="{{asset("$video_archive1->imageurl")}}"  title="Click to Play" style="width:100%;" onmouseover="showVideo('{{$video_archive1->id}}')">
-<!--                                                    <iframe width="100%" height="345px" src="{{$video_archive1->videoUrl}}?html5=1" allowfullscreen=""
-                                                            frameborder="0" style="display: none" id="video{{$video_archive1->id}}">
-                                                    </iframe>-->
-                                                    <!--<div class="caption">-->
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <a href="{!!'/rentCar?video='. $video_archive1->id.'&id=' !!}" target="_blank">
-                                                                    <button type="button" class="btn btn-success btn-sm" id="btn-car"><span class="fa fa-play-circle"> Click to play now</span></button>
-                                                                </a>
-                                                            </div>
-                                                        </div> 
-                                                    <!--</div>-->
-                                                </a>
-                                            </div>
+                            @foreach($video_in_category as $car)
+
+
+
+
+
+                                <div class="col-md-3 content-grid last-grid">
+                                    <a href="{!!'/rentCar?car='. $car->id.'&id='!!}">
+                                        <img src="../../{!! $car->imageurl!!}"
+                                             title="Click to Hire"></a>
+                                    {{--<div class="inner-info"><a href="{!!'/rentCar?car='. $car->id.'&id=' !!}">
+                                            <h5>{{$car->title}}</h5></a></div>--}}
+                                    <div class="second">
+                                        <div class="listings__title">{{$car->title}}</div>
+
+                                        <div class="listings__location">Location: {{$car->location}}</div>
+
+                                        <div class="listings__price">
+                                            <span>KSh </span>{{$car-> price_per_day}} per day
+                                        </div>
+                                        <a href="{!!'/rentCar?car='. $car->id.'&id='!!}">
+                                            <button type="button" class="btn btn-success" id="btn-car">Rent Me</button></a>
+                                    </div>
+
                                 </div>
+
+
+
                                 @endforeach
                         </div>
                         {{$video_in_category->links()}}

@@ -213,7 +213,7 @@
 
                                     @endforeach
 
-                                    <a href="videos/category/{{$category_name}}">
+                                    <a href="cars/category/{{$category_name}}">
                                         <button type="button" class="btn btn-success btn-sm pull-right"
                                                 style="margin-top: 10px"><span class="fa fa-plus-circle"> Click to view more <span
                                                         style="color: black">{{$category_name}}

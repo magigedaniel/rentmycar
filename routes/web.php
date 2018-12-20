@@ -281,10 +281,10 @@ Route::get('admin/homepage_picture/delete/{image_id}', function ($image_id) {
         }
     }
 });
-Route::get('videos/category/{category_name}', function ($category_name) {
+Route::get('cars/category/{category_name}', function ($category_name) {
     $current_year = DB::table('carpost')->max('year');
     $video_in_category = DB::table('carpost')
-            ->where([['year', '=', $current_year], ['category', '=', $category_name]])
+            ->where([['category', '=', $category_name]])
             ->orderBy('id', 'desc')
             ->paginate(6);
     if (Auth::check()) {
