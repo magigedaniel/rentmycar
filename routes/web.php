@@ -286,7 +286,7 @@ Route::get('cars/category/{category_name}', function ($category_name) {
     $video_in_category = DB::table('carpost')
             ->where([['category', '=', $category_name]])
             ->orderBy('id', 'desc')
-            ->paginate(6);
+            ->paginate(8);
     if (Auth::check()) {
         $user = Auth::user();
         return view('car_category', compact('user', 'video_in_category', 'category_name', 'current_year'));
