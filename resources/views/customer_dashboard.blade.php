@@ -78,8 +78,11 @@
                                             <button class="btn btn-info btn-sm" style="margin-left: 2px"><span
                                                         class="fa fa-trash">
                                                     @if($order_details->deposit_payment_status=='Paid')
+                                                        @if($order_details->balance_payment_status=='Paid')
+                                                            Fully Paid
+                                                        @endif
                                                         Pay Balance
-                                                        @else
+                                                    @else
                                                         Pay Deposit
                                                     @endif
 
