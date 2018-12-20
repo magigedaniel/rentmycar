@@ -33,15 +33,16 @@ class DashboardController extends Controller
         return view('auth.login');
 
     }
+
     //Get Member dashboard based on status
     public function getMemberDashboardOrderStatus(Request $request)
     {
-        $status=$request->status;
+        $status = $request->status;
         //dd($status);
         if (Auth::check()) {
             $user = Auth::user();
             $user_all_order = DB::table('car_order')
-                ->where([['user_id', '=', $user->id],['merchant_approval_status','=',$status]])
+                ->where([['user_id', '=', $user->id], ['merchant_approval_status', '=', $status]])
                 ->get();
             // dd($user_all_order);
             return view('member_dashboard_status', compact('user', 'user_all_order'));
@@ -69,12 +70,12 @@ class DashboardController extends Controller
 
     public function getMerchantDashboardOrderStatus(Request $request)
     {
-        $status=$request->status;
+        $status = $request->status;
         //dd($status);
         if (Auth::check()) {
             $user = Auth::user();
             $user_all_order = DB::table('car_order')
-                ->where([['merchant_id', '=', $user->id],['merchant_approval_status','=',$status]])
+                ->where([['merchant_id', '=', $user->id], ['merchant_approval_status', '=', $status]])
                 ->get();
             // dd($user_all_order);
             return view('merchant.merchant_dashboard_status', compact('user', 'user_all_order'));
@@ -115,17 +116,16 @@ class DashboardController extends Controller
     public function postMerchantOrderStatus(Request $request)
     {
 
-        $status=$request->input('status');
-        $id=$request->input('id');
+        $status = $request->input('status');
+        $id = $request->input('id');
 
-        if($status=='accept'){
+        if ($status == 'accept') {
             DB::table('car_order')
                 ->where('id', $id)
                 ->update(['merchant_approval_status' => 'Approved']);
 
             return response()->json(['success' => 'Success Order Accepted. Wait Deposit Payment.']);
-        }
-        else{
+        } else {
             DB::table('car_order')
                 ->where('id', $id)
                 ->update(['merchant_approval_status' => 'Rejected']);
@@ -165,13 +165,15 @@ class DashboardController extends Controller
             $user = Auth::user();
             $phone = $request->input('Phone');
             $amount = $request->input('Amount');
+            $order_id = $request->input('order_id');
+            $amount_type = $request->input('amount_type');
 
             //Trim phone no to replace 0 with 254
             $phone = ltrim($phone, '0');
             $phone = '254' . $phone;
 
             //Calling Mpesa Function to hit Apigee
-            $Mpesa_response = $this->MpesaPayment(1, $phone);
+            $Mpesa_response = $this->MpesaPayment(1, $phone, $order_id, $amount_type);
             if ($Mpesa_response == 'Success') {
                 return response()->json(['success' => 'Success']);
             }
@@ -180,7 +182,7 @@ class DashboardController extends Controller
         }
     }
 
-    public function MpesaPayment($amount, $phone)
+    public function MpesaPayment($amount, $phone, $order_id, $amount_type)
     {
         $access_token = $this->MpesaTokenGenerate();
         $url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
@@ -217,7 +219,7 @@ class DashboardController extends Controller
         //return $curl_response;
         if (empty($curl_response->{'errorMessage'})) {
 
-            $this->save_mpesa_apigee_response($curl_response);
+            $this->save_mpesa_apigee_response($curl_response, $order_id, $amount_type);
             return 'Success';
         }
         return $curl_response->{'errorMessage'};
@@ -226,7 +228,7 @@ class DashboardController extends Controller
     }
 
 
-    Public function save_mpesa_apigee_response($Json)
+    Public function save_mpesa_apigee_response($Json, $order_id, $amount_type)
         //save detail to the database mpesa status from apigeee
     {
         $user = Auth::user();
@@ -235,6 +237,26 @@ class DashboardController extends Controller
         DB::table('mpesa_transaction_status')->insert(
             ['MerchantRequestID' => $Json->{'MerchantRequestID'}, 'CheckoutRequestID' => $Json->{'CheckoutRequestID'}, 'user_id' => $user_id]
         );
+        if ($amount_type == 'deposit') {
+
+            DB::table('car_order')
+                ->where('id', $order_id)
+                ->update([
+                        'MerchantRequestID_deposit' => $Json->{'MerchantRequestID'}
+                    ]
+
+                );
+        }
+        else{
+            DB::table('car_order')
+                ->where('id', $order_id)
+                ->update([
+                        'MerchantRequestID_balance' => $Json->{'MerchantRequestID'}
+                    ]
+
+                );
+
+        }
     }
 
     Public function post_mpesa_response_check(Request $request)

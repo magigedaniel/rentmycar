@@ -48,13 +48,23 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="Amount">Amount (KES)</label>
-                                <input type="email" class="form-control" id="Amount" readonly
-                                       value="{{$user_all_order->deposit_amount}}">
+                                @if($user_all_order->deposit_payment_status=='Pending')
+                                    <input type="email" class="form-control" id="Amount" readonly
+                                           value="{{$user_all_order->deposit_amount}}">
+                                    <input type="text"  id="amount_type" name="amount_type"  hidden
+                                           value="deposit">
+                                    @else
+
+                                    <input type="text"  id="amount_type" name="amount_type"  hidden
+                                           value="bal">
+                                @endif
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="MpesaPhone">M-Pesa Phone No</label>
                                 <input type="text" class="form-control" id="MpesaPhone" name="MpesaPhone" required
                                        value="{{$user_all_order->phone_used}}">
+                                <input type="number" id="order_id" name="order_id" hidden
+                                       value="{{$user_all_order->id}}">
                             </div>
                         </div>
                         <div id="loading" style="display: none;"><img src="/images/loading.gif" alt=""/>Wait...</div>
@@ -87,7 +97,9 @@
                                     method: 'post',
                                     data: {
                                         Amount: jQuery('#Amount').val(),
-                                        Phone: jQuery('#MpesaPhone').val()
+                                        Phone: jQuery('#MpesaPhone').val(),
+                                        order_id: jQuery('#order_id').val(),
+                                        amount_type:jQuery('#amount_type').val()
                                     },
                                     success: function (result) {
                                         if (result.success) {
