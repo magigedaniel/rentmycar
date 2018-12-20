@@ -82,7 +82,14 @@
                                     @if($order_details->merchant_approval_status=='Approved')
                                         <a href="/memberDashboard/deposit/pay/{{$order_details->id}}">
                                             <button class="btn btn-info btn-sm" style="margin-left: 2px"><span
-                                                        class="fa fa-trash"> Pay / Details</span></button>
+                                                        class="fa fa-trash">
+                                                    @if($order_details->deposit_payment_status=='Paid')
+                                                        Pay Balance
+                                                        @else
+                                                        Pay Deposit
+                                                    @endif
+
+                                                </span></button>
                                         </a>
                                     @else
                                         <a href="/memberDashboard/deposit/pay/{{$order_details->id}}">
