@@ -80,8 +80,11 @@
                                                     @if($order_details->deposit_payment_status=='Paid')
                                                         @if($order_details->balance_payment_status=='Paid')
                                                             Fully Paid
+
+                                                        @else
+                                                            Pay Balance
                                                         @endif
-                                                        Pay Balance
+
                                                     @else
                                                         Pay Deposit
                                                     @endif
