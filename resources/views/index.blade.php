@@ -188,7 +188,7 @@
                              //echo $ipaddress;*/
                             ?>
                             @foreach($cars as $category_name => $car_in_category)
-                                <h4 style="text-align: center">{{$category_name}}
+                                    <h4 style="text-align: center">{{$category_name}}</h4>
 
                                     @foreach($car_in_category as $car)
                                         <div class="col-md-3 content-grid last-grid">
@@ -215,8 +215,8 @@
 
                                     <a href="cars/category/{{$category_name}}">
                                         <button type="button" class="btn btn-success btn-sm pull-right"
-                                                style="margin-top: 10px"><span class="fa fa-plus-circle"> Click to view more <span
-                                                        style="color: black">{{$category_name}}
+                                                style="margin-top: 10px"><span class="fa fa-plus-circle"></span> Click to view more <span
+                                                        style="color: black">{{$category_name}}</span>
                                         </button>
                                     </a>
 
