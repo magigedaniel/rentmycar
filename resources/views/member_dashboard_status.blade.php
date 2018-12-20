@@ -53,7 +53,7 @@
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                         <tr>
-                            <th>Car Reg No</th>
+                            <th>Car No</th>
                             <th>Date From</th>
                             <th>Date To</th>
                             <th>No of Days</th>
