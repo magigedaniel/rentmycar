@@ -54,6 +54,8 @@
                                     <input type="text"  id="amount_type" name="amount_type"  hidden
                                            value="deposit">
                                     @else
+                                    <input type="email" class="form-control" id="Amount" readonly
+                                           value="{{$user_all_order->Balance_amount}}">
 
                                     <input type="text"  id="amount_type" name="amount_type"  hidden
                                            value="bal">
