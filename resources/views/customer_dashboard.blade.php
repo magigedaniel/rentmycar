@@ -52,7 +52,7 @@
 
                     <script type="text/javascript">
                         $(document).ready(function () {
-                            $('#example').DataTable();
+                            $('#example').DataTable({searching: false, paging: false, info: false});
                         });
                     </script>
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
