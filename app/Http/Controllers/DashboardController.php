@@ -57,8 +57,8 @@ class DashboardController extends Controller
     {
         if (Auth::check()) {
             $user = Auth::user();
-            $user_all_order = DB::table('car_order')
-                ->where([['merchant_id', '=', $user->id]])
+            $user_all_order = DB::table('carpost')
+                ->where([['userID', '=', $user->id]])
                 ->get();
             // dd($user_all_order);
             return view('merchant.merchant_dashboard', compact('user', 'user_all_order'));

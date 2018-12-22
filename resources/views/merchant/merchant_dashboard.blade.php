@@ -54,21 +54,21 @@
                         <thead>
                         <tr>
                             <th>Car Reg No</th>
-                            <th>Date From</th>
-                            <th>Date To</th>
-                            <th>Status</th>
+                            <th>Price Per Day</th>
+                            <th>Engine Size</th>
+                            <th>Category</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($user_all_order as $order_details)
                             <tr>
-                                <td>{!! $order_details->car_ordered_reg!!}</td>
-                                <td>{!! $order_details->booking_date_from!!}</td>
-                                <td>{!! $order_details->booking_date_to!!}</td>
-                                <td>{!! $order_details->merchant_approval_status!!}</td>
+                                <td>{!! $order_details->car_reg!!}</td>
+                                <td>{!! $order_details->price_per_day!!}</td>
+                                <td>{!! $order_details->car_cc!!}</td>
+                                <td>{!! $order_details->category!!}</td>
                                 <td>
-                                    <a href="/merchantDashboard/action/{{$order_details->id}}"> <button class="btn btn-info btn-sm"  style="margin-left: 2px"><span class="fa fa-trash">Act / Details</span></button></a>
+                                    <a href="#"> <button class="btn btn-info btn-sm"  style="margin-left: 2px"><span class="fa fa-trash">Edit / Delete</span></button></a>
                                 </td>
                             </tr>
                         @endforeach
